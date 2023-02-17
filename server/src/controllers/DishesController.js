@@ -30,10 +30,7 @@ class DishesController {
     const { id } = request.params
 
     const dishes = await knex('dishes').where({ id })
-    const ingredient = await knex('ingredients').where({ dishes_id: id })
-    console.log(ingredient)
-
-    console.log(dishes)
+    // const ingredientOnDishes = await knex('ingredients').where({ dishes_id: id })
 
     if(!dishes) {
       throw new AppError('Nenhum prato encontrado!')
@@ -43,14 +40,6 @@ class DishesController {
     dishes.category = category ?? dishes.category
     dishes.description = description ?? dishes.description
     dishes.price = price ?? dishes.price
-
-    const ingredientsUpdated = ingredients.map(name => {
-      return name
-    })
-
-    ingredient.name = ingredientsUpdated ?? ingredient.name
-
-    console.log(ingredientsUpdated)
     
     await knex('dishes').where({ id }).update({
       name,
@@ -59,10 +48,14 @@ class DishesController {
       price,
     })
 
-    await knex('ingredients').where({ dishes_id: id }).insert({
-      name: ingredientsUpdated,
-      dishes_id: id
-    })
+    const ingredientLength = ingredients.length
+
+    for (let i = 0; i < ingredientLength; i++) {
+      await knex('ingredients').where({ dishes_id: id }).insert({
+        name: ingredients[i],
+        dishes_id: id
+      })
+    }
 
     response.json()
 
@@ -88,7 +81,33 @@ class DishesController {
     return response.json()
   }
 
-  async index(request, response) {}
+  async index(req, res) {
+    const { name, ingredient } = req.query
+
+    let dishes
+
+    if(ingredient) {
+      dishes = await knex('dishes').select('id', 'name', 'category', 'price').orderBy('name')
+
+      const filterIngredient = ingredient.split(',').map(ingredients => ingredients.trim())
+    } else {
+      dishes = await knex('dishes').whereLike('name').orderBy('name')
+    }
+
+    console.log(dishes.id)
+
+    const dishesIngredients = await knex('ingredients')
+    
+    // const dishes = await knex('dishes').select('name')
+    // const ingredients = await knex('ingredients').select('name', 'dishes_id')
+    // console.log(dishes)
+    // console.log(ingredients)
+
+    return res.json({
+      dishes,
+      // ingredients
+    })
+  }
 }
 
 module.exports = DishesController
