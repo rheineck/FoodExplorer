@@ -82,21 +82,25 @@ class DishesController {
   }
 
   async index(req, res) {
-    const { name, ingredient } = req.query
-
+    const { name, ingredient, dishes_id } = req.query
+  
     let dishes
 
     if(ingredient) {
-      dishes = await knex('dishes').select('id', 'name', 'category', 'price').orderBy('name')
 
       const filterIngredient = ingredient.split(',').map(ingredients => ingredients.trim())
+
+      dishes = await knex('ingredients').select([
+        'id',
+        'name',
+        'dishes_id'
+      ]).where('dishes_id', dishes_id).orderBy('name')
+
     } else {
-      dishes = await knex('dishes').whereLike('name').orderBy('name')
+      dishes = await knex('dishes').whereLike('name', name).orderBy('name')
     }
-
-    console.log(dishes.id)
-
-    const dishesIngredients = await knex('ingredients')
+   
+    const dishesIngredients = await knex('ingredients').where('dishes_id', dishes_id)
     
     // const dishes = await knex('dishes').select('name')
     // const ingredients = await knex('ingredients').select('name', 'dishes_id')
@@ -105,7 +109,7 @@ class DishesController {
 
     return res.json({
       dishes,
-      // ingredients
+      
     })
   }
 }
