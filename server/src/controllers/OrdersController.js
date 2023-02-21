@@ -3,13 +3,27 @@ const AppError = require('../utils/AppError')
 
 class OrdersController {
   async create(req, res) {
-    const { dishes_name, quantity } = req.body
+    const { id, quantity } = req.body
 
-    const dishes = await knex('dishes').where('name', dishes_name).select('id')
+    if(id.length !== quantity.length) {
+      throw new AppError('Quantidade de pratos inconsistente! Verifique!')
+    }
+
+    const dishes = await knex('dishes').select('name', 'price')
     console.log(dishes)
-    console.log(quantity)
+    // let dishes = []
 
-    return res.json()
+    // for(let i = 0; i < dishes_name.length; i++) {
+    //   dishes[i] = await knex('dishes').select('id', 'name', 'price').where({ name: dishes_name[i] })
+    // }
+    
+    // let order = []
+
+    // for(let i = 0; i < dishes_name.length; i++) {
+    //   order[i] = [dishes_name[i], quantity[i]]
+    // }
+
+    return res.json(dishes)
   }
 }
 

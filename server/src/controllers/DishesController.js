@@ -48,13 +48,15 @@ class DishesController {
       price,
     })
 
-    const ingredientLength = ingredients.length
+    if(ingredients) {
+      const ingredientLength = ingredients.length
 
-    for (let i = 0; i < ingredientLength; i++) {
-      await knex('ingredients').where({ dishes_id: id }).insert({
-        name: ingredients[i],
-        dishes_id: id
-      })
+      for (let i = 0; i < ingredientLength; i++) {
+        await knex('ingredients').where({ dishes_id: id }).insert({
+          name: ingredients[i],
+          dishes_id: id
+        })
+      }
     }
 
     response.json()
@@ -76,7 +78,7 @@ class DishesController {
   async delete(request, response) {
     const { id } = request.params
     
-    await knex('dishes').where({ id }).delete()
+    await knex('dishes').where({ id }).del()
 
     return response.json()
   }
