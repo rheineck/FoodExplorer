@@ -3,27 +3,42 @@ const AppError = require('../utils/AppError')
 
 class OrdersController {
   async create(req, res) {
-    const { id, quantity } = req.body
+    const { id, quantity, user_id } = req.query
+    const { status } = req.body
+    let i
 
-    if(id.length !== quantity.length) {
+    const dishes_id = id.split(',')
+    const dishesQuantity = quantity.split(',')
+
+    if(dishes_id.length !== dishesQuantity.length) {
       throw new AppError('Quantidade de pratos inconsistente! Verifique!')
     }
 
-    const dishes = await knex('dishes').select('name', 'price')
-    console.log(dishes)
-    // let dishes = []
+    let dishes = []
+    let price = []
+    let total = 0
 
-    // for(let i = 0; i < dishes_name.length; i++) {
-    //   dishes[i] = await knex('dishes').select('id', 'name', 'price').where({ name: dishes_name[i] })
-    // }
+    for(i = 0; i < dishes_id.length; i++) {
+      [price[i]] = await knex('dishes').where({ id: dishes_id[i] }).select('price');
+      [dishes[i]] = await knex('dishes').where({ id: dishes_id[i] }).select('name')
+    }
+
+    for (i = 0; i < dishes_id.length; i++) {
+      total = total + price[i].price
+    }
+
+    total = total.toFixed(2)
     
-    // let order = []
-
-    // for(let i = 0; i < dishes_name.length; i++) {
-    //   order[i] = [dishes_name[i], quantity[i]]
-    // }
-
-    return res.json(dishes)
+    await knex('orders').insert({
+      user_id,
+      dishes_id,
+      quantity: dishesQuantity,
+      total,
+      status
+    })
+    
+       
+    return res.json()
   }
 }
 
