@@ -7,6 +7,7 @@ const OrdersController = require('../controllers/OrdersController')
 
 const orderController = new OrdersController()
 
-ordersRoutes.post('/', ensureAuthenticated, orderController.create)
+ordersRoutes.post('/', orderController.create)
+ordersRoutes.get('/:id', ensureAuthenticated, orderController.show)
 
 module.exports = ordersRoutes

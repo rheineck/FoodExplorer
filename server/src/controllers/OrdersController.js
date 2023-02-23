@@ -3,47 +3,67 @@ const AppError = require('../utils/AppError')
 
 class OrdersController {
   async create(req, res) {
-    const { dishes_id, quantity, user_id } = req.query
-    const { status } = req.body
+    const { user_id, order, status } = req.body
     let i
-    
-    const dishesId = dishes_id.split(',')
-    const dishesQuantity = quantity.split(',')
 
-    if(dishesId.length !== dishesQuantity.length) {
-      throw new AppError('Quantidade de pratos inconsistente! Verifique!')
-    }
-
+    let quantity = []
     let dishes = []
-    let price = []
-    let total = 0
-
-    for(i = 0; i < dishesId.length; i++) {
-      [price[i]] = await knex('dishes').where({ id: dishesId[i] }).select('price');
-      [dishes[i]] = await knex('dishes').where({ id: dishesId[i] }).select('name')
+    
+    for(i = 0; i < order.length; i++) {
+      quantity[i] = order[i][0]
+      dishes[i] = order[i][1]
     }
-
-    for (i = 0; i < dishesId.length; i++) {
-      total = total + price[i].price*dishesQuantity[i]
+    
+    let dishName = []
+    let dishPrice = []
+    let total = 0
+    
+    for(i = 0; i < dishes.length; i++) {
+      [dishName[i]] = await knex('dishes').select('name').where({ name: dishes[i]});
+      [dishPrice[i]] = await knex('dishes').select('price').where({ name: dishes[i]});
+      total = total + quantity[i]*dishPrice[i].price
     }
 
     total = total.toFixed(2)
-    
-    for (i = 0; i < dishesId.length; i++) {
-      await knex('orders').insert({
-        dishes_id: dishesId[i],
-        quantity: dishesQuantity[i],
-        user_id,
-        total,
-        status
+
+    await knex('orders').insert({
+      user_id,
+      total,
+      status
+    })
+
+    const order_id = await knex('orders').select('id').where({ user_id })
+   
+    const lastUserOrder = order_id[order_id.length - 1].id
+
+    for(i = 0; i < dishName.length; i++) {
+      await knex('details').insert({
+        order_id: lastUserOrder,
+        dish: dishName[i].name,
+        quantity: quantity[i]
       })
     }
-      
+
     return res.json()
   }
 
   async show(req,res) {
+    const { id } = req.params
+    let i
+
+    const orders = await knex('orders').select().where({ user_id: id })
+
+    let createdAtOrders = []
+
+    for(i = 0; i< orders.length; i++) {
+      createdAtOrders[i] = orders[i].created_at
+      if (createdAtOrders[i++] === createdAtOrders[i]) {
+
+      }
+    }
+    console.log(createdAtOrders) 
     
+    return res.json(orders)
   }
 }
 
