@@ -9,5 +9,6 @@ const orderController = new OrdersController()
 
 ordersRoutes.post('/', orderController.create)
 ordersRoutes.get('/:id', ensureAuthenticated, orderController.show)
+ordersRoutes.put('/', orderController.update)
 
 module.exports = ordersRoutes
