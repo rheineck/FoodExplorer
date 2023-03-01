@@ -7,9 +7,9 @@ const ensureAuthenticated = require('../middleware/ensureAuthenticated')
 
 const paymentsController = new PaymentsController()
 
-paymentsRoutes.post('/:user_id', paymentsController.create)
-paymentsRoutes.delete('/:user_id', paymentsController.delete)
-paymentsRoutes.get('/:user_id', paymentsController.index)
-paymentsRoutes.get('/cards/:id', paymentsController.show)
+paymentsRoutes.post('/:user_id', ensureAuthenticated, paymentsController.create)
+paymentsRoutes.delete('/:user_id', ensureAuthenticated, paymentsController.delete)
+paymentsRoutes.get('/:user_id', ensureAuthenticated, paymentsController.index)
+paymentsRoutes.get('/cards/:id', ensureAuthenticated, paymentsController.show)
 
 module.exports = paymentsRoutes

@@ -4,7 +4,7 @@ const knex = require('../database/index')
 
 class UsersController {
   async create(request, response) {
-    const { name, email, password } = request.body
+    const { name, email, password, isAdmin } = request.body
 
     const [checkUserExists] = await knex('users').select().where({email})
 
@@ -17,7 +17,8 @@ class UsersController {
     await knex('users').insert({
       name,
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      isAdmin
     })
 
     return response.status(201).json()

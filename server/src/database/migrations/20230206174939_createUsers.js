@@ -4,7 +4,7 @@ exports.up = knex => knex.schema.createTable('users', table => {
   table.text('email')
   table.text('password')
   table.timestamp('created_at').default(knex.fn.now())
-  table.boolean('isAdmin')
+  table.integer('isAdmin')
 })
 
 exports.down = knex => knex.schema.dropTable('users')
