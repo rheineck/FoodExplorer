@@ -71,6 +71,12 @@ class OrdersController {
 
     return res.json()
   }
+
+  async index (req, res) {
+    const orders = await knex('orders').select()
+
+    return res.json(orders)
+  }
 }
 
 module.exports = OrdersController
