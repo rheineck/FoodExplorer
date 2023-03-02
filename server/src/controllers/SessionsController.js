@@ -6,8 +6,8 @@ const { compare } = require('bcryptjs')
 const { sign } = require('jsonwebtoken')
 
 class SessionsController {
-  async create(request, response) {
-    const { email, password } = request.body
+  async create(req, res) {
+    const { email, password } = req.body
 
     const user = await knex('users').where({ email }).first()
 
@@ -27,7 +27,7 @@ class SessionsController {
       expiresIn
     })
 
-    return response.json({ user, token })
+    return res.json({ user, token })
   }
 }
 

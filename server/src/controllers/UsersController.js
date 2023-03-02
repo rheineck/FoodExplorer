@@ -3,8 +3,8 @@ const AppError = require('../utils/AppError')
 const knex = require('../database/index')
 
 class UsersController {
-  async create(request, response) {
-    const { name, email, password, isAdmin } = request.body
+  async create(req, res) {
+    const { name, email, password, isAdmin } = req.body
 
     const [checkUserExists] = await knex('users').select().where({email})
 
@@ -21,7 +21,7 @@ class UsersController {
       isAdmin
     })
 
-    return response.status(201).json()
+    return res.status(201).json()
 
   }
 

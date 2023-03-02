@@ -45,7 +45,7 @@ class OrdersController {
       })
     }
 
-    return res.json()
+    return res.status(201).json()
   }
 
   async show(req, res) {

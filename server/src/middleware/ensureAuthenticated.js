@@ -2,8 +2,8 @@ const { verify } = require('jsonwebtoken')
 const AppError = require('../utils/AppError')
 const AuthConfig = require('../configs/auth')
 
-function ensureAuthenticated(request, response, next) {
-  const authHeader = request.headers.authorization
+function ensureAuthenticated(req, res, next) {
+  const authHeader = req.headers.authorization
 
   if(!authHeader) {
     throw new AppError('JSON Web Token not informed!', 401)
@@ -13,7 +13,7 @@ function ensureAuthenticated(request, response, next) {
 
   try {
     const { sub: user_id } = verify(token, AuthConfig.jwt.secret)
-    request.user = {
+    req.user = {
       id: Number(user_id)
     }
 

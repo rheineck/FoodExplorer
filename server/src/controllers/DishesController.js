@@ -2,8 +2,8 @@ const knex = require('../database/index')
 const AppError = require('../utils/AppError')
 
 class DishesController {
-  async create(request, response) {
-    const { name, category, description, price, ingredients } = request.body
+  async create(req, res) {
+    const { name, category, description, price, ingredients } = req.body
     
     const dishes_id = await knex('dishes').insert({
       name,
@@ -21,16 +21,15 @@ class DishesController {
 
     await knex('ingredients').insert(ingredientsInsert)
 
-    response.json()
+    return res.status(201).json()
 
   }
 
-  async update(request, response) {
-    const { name, category, description, price, ingredients } = request.body
-    const { id } = request.params
+  async update(req, res) {
+    const { name, category, description, price, ingredients } = req.body
+    const { id } = req.params
 
     const dishes = await knex('dishes').where({ id })
-    // const ingredientOnDishes = await knex('ingredients').where({ dishes_id: id })
 
     if(!dishes) {
       throw new AppError('Nenhum prato encontrado!')
@@ -59,28 +58,28 @@ class DishesController {
       }
     }
 
-    response.json()
+    return res.status(200).json()
 
   }
 
-  async show (request, response) {
-    const { id } = request.params
+  async show (req, res) {
+    const { id } = req.params
 
     const dishes = await knex('dishes').where({ id }).first()
     const ingredients = await knex('ingredients').where({ dishes_id: id }).orderBy('name')
 
-    return response.json({
+    return res.json({
       ...dishes,
       ingredients
     })
   }
 
-  async delete(request, response) {
-    const { id } = request.params
+  async delete(req, res) {
+    const { id } = req.params
     
     await knex('dishes').where({ id }).del()
 
-    return response.json()
+    return res.json()
   }
 
   async index(req, res) {

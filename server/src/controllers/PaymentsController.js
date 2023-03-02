@@ -6,12 +6,12 @@ class PaymentsController {
     const { number, flag, type, security_code, name, expires } = req.body
     const { user_id } = req.params
 
-    const hashedNumber = await hash(number, 8)
+    // const hashedNumber = await hash(number, 8)
     const hashedSecurityCode = await hash(security_code, 8)
 
     await knex('payments').insert({
       user_id,
-      number: hashedNumber,
+      number,
       flag,
       type,
       security_code: hashedSecurityCode,
@@ -19,7 +19,7 @@ class PaymentsController {
       expires
     })
 
-    return res.json()
+    return res.status(201).json()
   }
 
   async delete(req, res) {

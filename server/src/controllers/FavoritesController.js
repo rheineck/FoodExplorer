@@ -4,13 +4,6 @@ const AppError = require('../utils/AppError')
 class FavoritesController {
   async create(req, res) {
     const { dishes_id, user_id } = req.params
-
-    // const favoritesDishes = await knex('favorites').select().where({dishes_id, user_id})
-    // console.log(favoritesDishes)
-
-    // if(favoritesDishes) {
-    //   throw new AppError('Prato já adicionado nos favoritos!')
-    // }
     
     await knex('favorites').insert({dishes_id, user_id})
 
