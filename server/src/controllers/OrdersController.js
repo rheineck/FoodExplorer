@@ -3,7 +3,8 @@ const AppError = require('../utils/AppError')
 
 class OrdersController {
   async create(req, res) {
-    const { user_id, order, status } = req.body
+    const { order, status } = req.body
+    const user_id = req.user.id
     let i
 
     let quantity = []
@@ -49,7 +50,7 @@ class OrdersController {
   }
 
   async show(req, res) {
-    const { id } = req.params
+    const id = req.user.id
 
     const orders = await knex('orders').select('id', 'total', 'created_at').where('user_id', id)
     const lastOrderId = orders[orders.length - 1].id

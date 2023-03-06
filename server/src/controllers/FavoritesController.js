@@ -3,7 +3,8 @@ const AppError = require('../utils/AppError')
 
 class FavoritesController {
   async create(req, res) {
-    const { dishes_id, user_id } = req.params
+    const { dishes_id } = req.params
+    const user_id = req.user.id
     
     await knex('favorites').insert({dishes_id, user_id})
 
@@ -11,7 +12,8 @@ class FavoritesController {
   }
 
   async delete(req, res) {
-    const { dishes_id, user_id } = req.params
+    const { dishes_id } = req.params
+    const user_id = req.user.id
 
     const favoritesDishes = await knex('favorites').select().where({ dishes_id, user_id })
 
@@ -25,7 +27,7 @@ class FavoritesController {
   }
 
   async index(req, res) {
-    const { user_id } = req.params
+    const user_id = req.user.id
 
     const dishes_id = await knex('favorites').where({ user_id }).select('dishes_id')
 

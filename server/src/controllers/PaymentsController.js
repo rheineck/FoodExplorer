@@ -4,9 +4,8 @@ const { hash } = require('bcryptjs')
 class PaymentsController {
   async create(req, res) {
     const { number, flag, type, security_code, name, expires } = req.body
-    const { user_id } = req.params
+    const user_id = req.user.id
 
-    // const hashedNumber = await hash(number, 8)
     const hashedSecurityCode = await hash(security_code, 8)
 
     await knex('payments').insert({
@@ -23,7 +22,7 @@ class PaymentsController {
   }
 
   async delete(req, res) {
-    const { user_id } = req.params
+    const user_id = req.user.id
 
     await knex('payments').delete().where('user_id', user_id)
 
@@ -31,7 +30,7 @@ class PaymentsController {
   }
 
   async index(req, res) {
-    const { user_id } = req.params
+    const user_id = req.user.id
 
     const cards = await knex('payments').select().where('user_id', user_id)
 
