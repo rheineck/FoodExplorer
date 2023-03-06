@@ -91,9 +91,6 @@ class DishesController {
     
     if(ingredient) {
       
-      // const filterIngredient = ingredient.split(',').map(ingredients => ingredients.trim())
-      // console.log(filterIngredient)
-      
       ingredients = await knex('ingredients').select([
         'id',
         'name',
@@ -104,16 +101,6 @@ class DishesController {
       dishes = await knex('dishes').whereLike('name', name).orderBy('name')
     }
    
-    // const dishesIngredients = await knex('ingredients').where('dishes_id', dishes_id)
-    
-    // const dishes = await knex('dishes').select('name')
-    // const ingredients = await knex('ingredients').select('name', 'dishes_id')
-    // console.log(dishes)
-    // console.log(ingredients)
-
-    // return res.json({
-    //   dishes,
-    // })
     return res.json({
       dishes,
       ingredients
