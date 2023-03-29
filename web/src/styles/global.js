@@ -7,5 +7,8 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body {
+    background:  ${({ theme }) => theme.COLORS.DARK_400}
+  }
   
 `
