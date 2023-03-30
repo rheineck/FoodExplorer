@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  button {
-    border: none;
-    background: none;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
-  }
+export const Container = styled.a`
+  display: flex;
+  background: none;
+  border: none;
+  text-decoration: none;
+
+  font-size: 1.4rem;
+  margin-top: 3.2rem;
+
 `

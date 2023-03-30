@@ -7,9 +7,12 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+    font-size: 62.5%;
+  }
+
   body {
     background:  ${({ theme }) => theme.COLORS.DARK_400};
-    /* background: #fff; */
 
     -webkit-font-smoothing: antialiased;
   }
@@ -25,16 +28,22 @@ export default createGlobalStyle`
   button, a {
     cursor: pointer;
     transition: filter 0.2s;
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
   }
 
-  button:hover, a:hover {
+  button {
+    background: ${({ theme }) => theme.COLORS.TOMATO_100};
+  }
+
+  button:hover {
     filter: brightness(0.9);
+    background: ${({ theme }) => theme.COLORS.TOMATO_400};
   }
 
   h1 {
     font-weight: 700;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    font-size: 37.2431px;
+    font-size: 3.8rem;
   }
   
 `

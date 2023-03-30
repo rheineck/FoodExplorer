@@ -23,7 +23,7 @@ export function SingIn() {
         title="Entrar"
       />
       <ButtonText 
-        title="Criar um Conta"
+        title="Criar uma Conta"
       />
     </Container>
   )
