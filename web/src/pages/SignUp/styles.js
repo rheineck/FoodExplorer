@@ -8,8 +8,18 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
+  .title {
+    display: none;
+  }
+
   @media(min-width: 500px) {
-    
+    .title{
+      display: flex;
+      margin-bottom: 3.2rem;
+      font-family: 'Poppins';
+      font-weight: 500;
+      font-size: 3.2rem;
+    }
   }
 
 `

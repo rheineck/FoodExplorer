@@ -18,13 +18,13 @@ export function SingIn() {
         <Input 
           placeholder="Senha"
         />
+        <Button 
+          title="Entrar"
+        />
+        <ButtonText 
+          title="Criar uma Conta"
+        />
       </Form>
-      <Button 
-        title="Entrar"
-      />
-      <ButtonText 
-        title="Criar uma Conta"
-      />
     </Container>
   )
 }

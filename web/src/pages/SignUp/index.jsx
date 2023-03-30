@@ -10,6 +10,7 @@ export function SignUp() {
     <Container>
     <Brand />
     <Form>
+      <h1 className="title">Crie sua conta</h1>
       <span>Seu nome</span>
       <Input 
         placeholder="Digite seu nome"
@@ -22,13 +23,13 @@ export function SignUp() {
       <Input 
         placeholder="No mínimo 6 caracteres"
       />
-    </Form>
-    <Button 
-      title="Criar Conta"
-    />
-    <ButtonText 
-      title="Já tenho uma conta"
-    />
+      <Button 
+        title="Criar Conta"
+      />
+      <ButtonText 
+        title="Já tenho uma conta"
+      />
+      </Form>
   </Container>
   )
 }
