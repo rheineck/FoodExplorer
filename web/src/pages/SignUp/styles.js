@@ -8,6 +8,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
+  @media(min-width: 500px) {
+    
+  }
 
 `
 
@@ -25,6 +28,20 @@ export const Form = styled.form`
     margin-bottom: 8px;
   
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
+  }
+
+  @media(min-width: 500px) {
+    background-color: ${({ theme }) => theme.COLORS.DARK_700};
+    height: 62rem;
+    width: 48rem;
+    border-radius: 1.6rem;
+
+    padding: 6.4rem;
+
+    input {
+      height: 7.2rem;
+      width: 34.8rem;
+    }
   }
 `
 
