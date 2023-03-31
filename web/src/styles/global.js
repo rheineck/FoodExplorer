@@ -33,6 +33,7 @@ export default createGlobalStyle`
 
   button {
     background: ${({ theme }) => theme.COLORS.TOMATO_100};
+    border: none;
   }
 
   button:hover {
@@ -44,6 +45,13 @@ export default createGlobalStyle`
     font-weight: 700;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-size: 3.8rem;
+  }
+
+  @media(min-width: 1500px) {
+    body {
+      margin: 0 20rem 0;
+    }
+    
   }
   
 `

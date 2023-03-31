@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   input {
-    width: 316px;
+    width: 100%;
     height: 48px;
     border: none;
     border-radius: 8px;

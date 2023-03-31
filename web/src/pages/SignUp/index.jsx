@@ -8,8 +8,8 @@ import { ButtonText } from "../../components/ButtonText"
 export function SignUp() {
   return (
     <Container>
-    <Brand />
-    <Form>
+    <Brand className="brand" />
+    <Form >
       <h1 className="title">Crie sua conta</h1>
       <span>Seu nome</span>
       <Input 
@@ -29,7 +29,7 @@ export function SignUp() {
       <ButtonText 
         title="Já tenho uma conta"
       />
-      </Form>
+    </Form>
   </Container>
   )
 }

@@ -5,11 +5,12 @@ import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
 import { Brand } from '../../components/Brand'
 
-export function SingIn() {
+export function SignIn() {
   return (
     <Container>
       <Brand />
       <Form>
+        <h1 className='title'>Faça Login</h1>
         <span>E-mail</span>
         <Input 
           placeholder="E-mail"
