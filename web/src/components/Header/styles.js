@@ -38,13 +38,25 @@ export const Container = styled.div`
     width: 2rem;
   }
 
+  .desktopOnly {
+    display: none;
+  }
+
   @media(min-width: 1200px) {
+
+    padding: 2.4rem 12.3rem;
+
     .mobileOnly {
       display: none;
     }
 
-    span {
+    .desktopOnly {
       display: block;
+    }
+
+    input {
+      width: 58.1rem;
+      height: 4.8rem;
     }
 
     button {
@@ -63,6 +75,13 @@ export const Container = styled.div`
 
     button:hover {
       background: ${({ theme }) => theme.COLORS.TOMATO_400};
+    }
+
+    button:last-child {
+      background: none;
+      height: 3.2rem;
+      width: 3.2rem;
+      margin-left: 3.2rem;
     }
 
     img {
