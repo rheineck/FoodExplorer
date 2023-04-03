@@ -7,15 +7,16 @@ import { Brand } from '../Brand'
 export function Header() {
   return(
     <Container>
-      <button>
+      <button className='mobileOnly'>
         <img src={MenuIcon} />
       </button>
       <Brand />
       <button>
-        <div className="popup">
+        <div className="popup mobileOnly">
           0
         </div>
         <img src={Receipt} />
+        <span>Pedido (0)</span>
       </button>
       
     </Container>
