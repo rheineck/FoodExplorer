@@ -14,10 +14,12 @@ export function SignIn() {
         <span>E-mail</span>
         <Input 
           placeholder="E-mail"
+          type="text"
         />
         <span>Senha</span>
         <Input 
           placeholder="Senha"
+          type="password"
         />
         <Button 
           title="Entrar"

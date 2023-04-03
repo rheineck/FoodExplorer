@@ -14,14 +14,17 @@ export function SignUp() {
       <span>Seu nome</span>
       <Input 
         placeholder="Digite seu nome"
+        type="text"
       />
       <span>E-mail</span>
       <Input 
         placeholder="exemplo@exemplo.com.br"
+        type="text"
       />
       <span>Senha</span>
       <Input 
         placeholder="No mínimo 6 caracteres"
+        type="password"
       />
       <Button 
         title="Criar Conta"
