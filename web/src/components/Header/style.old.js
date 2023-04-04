@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 120px;
+  height: 12rem;
   width: 100%;
-  padding: 56px 28px 24px;
+  padding: 5.6rem 2.8rem 2.4rem;
   background: ${({ theme }) => theme.COLORS.DARK_700};
 
   display: flex;
@@ -19,28 +19,31 @@ export const Container = styled.div`
     filter: none;
   }
 
-  .desktopOnly {
-    display: none;
+  h1 {
+    font-size: 21px;
   }
 
   .popup {
     position: absolute;
-    right: 20px;
-    top: 52px;
-
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    background: ${({ theme }) => theme.COLORS.TOMATO_100};
+    right: 2rem;
+    top: 5.2rem;    
     
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
+    background: ${({ theme }) => theme.COLORS.TOMATO_100};
 
-    font-family: 'Poppins';
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .desktopOnly {
+    display: none;
   }
 
   @media(min-width: 1200px) {
+
+    padding: 2.4rem 12.3rem;
+    gap: 32px;
+
     .mobileOnly {
       display: none;
     }
@@ -49,8 +52,23 @@ export const Container = styled.div`
       display: block;
     }
 
+    input {
+      width: 58.1rem;
+      height: 4.8rem;
+    }
+
     button {
+      display: flex;
+      align-items: center;
       background: ${({ theme }) => theme.COLORS.TOMATO_100};
+      width: 216px;
+      height: 56px;
+      padding: 16px 46.5px;
+      gap: 8px;
+
+      border-radius: 5px;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
     }
 
     button:hover {
@@ -59,11 +77,14 @@ export const Container = styled.div`
 
     button:last-child {
       background: none;
+      height: 3.2rem;
+      width: 3.2rem;
     }
 
-    button:last-child svg {
-      height: 32px;
-      width: 32px;
+    img {
+      height: 28px;
+      width: 28px;
     }
+
   }
 `

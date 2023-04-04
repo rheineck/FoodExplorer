@@ -1,34 +1,50 @@
 import { Container } from './styles'
-import MenuIcon from '../../assets/icons/Menu.svg'
-import Receipt from '../../assets/icons/Receipt.svg'
-import SignOut from '../../assets/icons/SignOut.svg'
-import Search from '../../assets/icons/Search.svg'
+import { List, Receipt, SignOut, MagnifyingGlass } from '@phosphor-icons/react'
 
 import { Brand } from '../Brand'
 import { Input } from '../Input'
+import { Button } from '../Button'
+
 
 export function Header() {
   return(
     <Container>
-      <button className='mobileOnly'>
-        <img src={MenuIcon} />
-      </button>
+      <Button 
+        icon={List}
+        className='mobileOnly'
+      />
       <Brand />
       <Input 
         className='desktopOnly'
+        icon={MagnifyingGlass}
         placeholder='Busque por prato ou ingredientes'
         type='text'
       />
-      <button>
+      
+      <Button
+        className='desktopOnly'
+        title='Pedido (0)'
+        icon={Receipt}
+      />
+
+      <div className="popup mobileOnly">
+        0
+        <Button 
+          icon={Receipt}
+        />
+      </div>
+      {/* <button>
         <div className="popup mobileOnly">
           0
         </div>
         <img src={Receipt} />
         <span className='desktopOnly'>Pedido (0)</span>
-      </button>
-      <button className='desktopOnly'>
-        <img src={SignOut} />
-      </button>
+      </button> */}
+
+      <Button 
+        className='desktopOnly'
+        icon={SignOut}
+      />
       
     </Container>
   )

@@ -1,15 +1,25 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  input {
-    /* width: 100%; */
-    height: 4.8rem;
-    border: none;
-    border-radius: 8px;
-    padding: 1.2rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  background: ${({ theme }) => theme.COLORS.DARK_900};
+
+  margin-bottom: 8px;
+  border-radius: 10px;
+
+
+  > input {
+    height: 48px;
+    width: 100%;
+    border: 0;
+    padding: 12px;
 
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
-    background: ${({ theme }) => theme.COLORS.DARK_900};
+    background: transparent;
 
     &:placeholder {
       color: ${({ theme }) => theme.COLORS.LIGHT_500};

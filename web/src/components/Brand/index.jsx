@@ -5,7 +5,7 @@ export function Brand() {
   return (
     <Container>
       <img src={logoImg} alt="Logo FoodExplorer" />
-      <h1>FoodExplorer</h1>
+      <h1>food explorer</h1>
     </Container>
   )
 }

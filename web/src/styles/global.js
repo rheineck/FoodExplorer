@@ -47,6 +47,12 @@ export default createGlobalStyle`
     font-size: 3.8rem;
   }
 
+  svg {
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    height: 28px;
+    width: 28px;
+  }
+
   @media(min-width: 1500px) {
     body {
       margin: 0 20rem 0;
