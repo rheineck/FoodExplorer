@@ -14,33 +14,25 @@ export function Header() {
         className='mobileOnly'
       />
       <Brand />
-      <Input 
-        className='desktopOnly'
-        icon={MagnifyingGlass}
-        placeholder='Busque por prato ou ingredientes'
-        type='text'
-      />
-      
+      <div className="desktopOnly">
+        <Input 
+          icon={MagnifyingGlass}
+          placeholder='Busque por prato ou ingredientes'
+          type='text'
+        />
+      </div>
       <Button
         className='desktopOnly'
         title='Pedido (0)'
         icon={Receipt}
       />
-
       <div className="popup mobileOnly">
         0
-        <Button 
-          icon={Receipt}
-        />
       </div>
-      {/* <button>
-        <div className="popup mobileOnly">
-          0
-        </div>
-        <img src={Receipt} />
-        <span className='desktopOnly'>Pedido (0)</span>
-      </button> */}
-
+      <Button 
+        className='mobileOnly'
+        icon={Receipt}
+      />
       <Button 
         className='desktopOnly'
         icon={SignOut}

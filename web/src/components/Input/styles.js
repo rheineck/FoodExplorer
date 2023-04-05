@@ -25,4 +25,10 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.LIGHT_500};
     }
   }
+
+  svg {
+      height: 24px;
+      width: 24px;
+      margin: 12px 20px;
+    }
 `

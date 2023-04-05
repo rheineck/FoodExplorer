@@ -12,6 +12,7 @@ export const Container = styled.div`
 
   button {
     background: none;
+    width: fit-content;
   }
 
   button:hover {
@@ -25,8 +26,10 @@ export const Container = styled.div`
 
   .popup {
     position: absolute;
-    right: 20px;
-    top: 52px;
+    right: 38px;
+    top: 56px;
+
+    padding: 0 5.5px;
 
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     background: ${({ theme }) => theme.COLORS.TOMATO_100};
@@ -40,17 +43,24 @@ export const Container = styled.div`
     font-weight: 500;
   }
 
-  @media(min-width: 1200px) {
+  @media(min-width: 1366px) {
+    /* padding: 28px 123px; */
+
     .mobileOnly {
       display: none;
     }
 
     .desktopOnly {
-      display: block;
+      display: flex;
+    }
+
+    input {
+      width: 581px;
     }
 
     button {
       background: ${({ theme }) => theme.COLORS.TOMATO_100};
+      width: 216px;
     }
 
     button:hover {
@@ -59,11 +69,17 @@ export const Container = styled.div`
 
     button:last-child {
       background: none;
+      width: fit-content;
     }
 
     button:last-child svg {
       height: 32px;
       width: 32px;
     }
+  }
+
+  @media(min-width: 1500px) {
+    padding: 0 20rem;
+    gap: 32px;
   }
 `
