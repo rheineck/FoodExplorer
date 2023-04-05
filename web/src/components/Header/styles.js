@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 120px;
-  width: 100%;
+  max-width: auto;
+  
   padding: 56px 28px 24px;
   background: ${({ theme }) => theme.COLORS.DARK_700};
 
@@ -47,8 +48,7 @@ export const Container = styled.div`
     font-weight: 500;
   }
 
-  @media(min-width: 1366px) {
-    /* padding: 28px 123px; */
+  @media(min-width: 1366px) {   
 
     .mobileOnly {
       display: none;
@@ -57,8 +57,6 @@ export const Container = styled.div`
     .desktopOnly {
       display: flex;
     }
-
-    
 
     button {
       background: ${({ theme }) => theme.COLORS.TOMATO_100};
@@ -79,4 +77,10 @@ export const Container = styled.div`
       width: 32px;
     }
   }
+
+  @media(width: 1920px) {
+    padding-left: 27.7rem;
+    padding-right: 27.7rem;
+  }
+
 `

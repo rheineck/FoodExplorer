@@ -13,7 +13,6 @@ export default createGlobalStyle`
 
   body {
     background:  ${({ theme }) => theme.COLORS.DARK_400};
-
     -webkit-font-smoothing: antialiased;
   }
 
@@ -45,4 +44,5 @@ export default createGlobalStyle`
     height: 28px;
     width: 28px;
   }
+
 `
