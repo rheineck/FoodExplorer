@@ -45,5 +45,4 @@ export default createGlobalStyle`
     height: 28px;
     width: 28px;
   }
-  
 `

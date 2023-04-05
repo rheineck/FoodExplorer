@@ -20,6 +20,10 @@ export const Container = styled.div`
     filter: none;
   }
 
+  input {
+    width: 581px;
+  }
+
   .desktopOnly {
     display: none;
   }
@@ -54,9 +58,7 @@ export const Container = styled.div`
       display: flex;
     }
 
-    input {
-      width: 581px;
-    }
+    
 
     button {
       background: ${({ theme }) => theme.COLORS.TOMATO_100};
@@ -76,10 +78,5 @@ export const Container = styled.div`
       height: 32px;
       width: 32px;
     }
-  }
-
-  @media(min-width: 1500px) {
-    padding: 0 20rem;
-    gap: 32px;
   }
 `
