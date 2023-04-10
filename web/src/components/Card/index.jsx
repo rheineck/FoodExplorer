@@ -14,11 +14,12 @@ export function Card({ data, ...rest }) {
         icon={HeartStraight}
       />
       <img src={Ravanello} alt="Salada Ravanello" />
-      <ButtonText
-        className='title'
-        title='Salada Ravanello'
-        icon={CaretRight}
-      />
+      <div className="title">
+        <ButtonText
+          title='Salada Ravanello'
+        />
+        <CaretRight size={14}/>
+      </div>
       <h1>R$ 49,97</h1>
       <div className="includeDishes">
         <ButtonText

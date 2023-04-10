@@ -9,7 +9,6 @@ export const Container = styled.div`
   height: 318px;
   width: 210px;
   border-radius: 8px;
-  margin: 24px; //temporário
 
   background: ${({ theme }) => theme.COLORS.DARK_200};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
@@ -17,7 +16,7 @@ export const Container = styled.div`
   .includeButton {
     width: 162px;
     height: 32px;
-
+    font-size: 14px;
     border-radius: 5px;
   }
 
@@ -45,9 +44,10 @@ export const Container = styled.div`
   }
   
   .title {
+    display: flex;
+    align-items: center;
     font-size: 1.4rem;
     font-weight: 500;
-    align-items: center;
     margin-bottom: 12px;
 
     svg {

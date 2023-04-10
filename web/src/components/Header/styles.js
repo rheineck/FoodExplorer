@@ -33,7 +33,7 @@ export const Container = styled.div`
 
   .popup {
     position: absolute;
-    right: 38px;
+    right: 45px;
     top: 56px;
 
     padding: 0 5.5px;
