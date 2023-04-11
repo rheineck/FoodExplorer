@@ -20,20 +20,25 @@ export function Card({ data, ...rest }) {
         />
         <CaretRight size={14}/>
       </div>
+      <div className="desktopOnly">
+        Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
+      </div>
       <h1>R$ 49,97</h1>
-      <div className="includeDishes">
-        <ButtonText
-          icon={Minus}
-        />
-        <span>01</span>
-        <ButtonText 
-          icon={Plus}
+      <div className="desktopButtons">
+        <div className="includeDishes">
+          <ButtonText
+            icon={Minus}
+          />
+          <span>01</span>
+          <ButtonText 
+            icon={Plus}
+          />
+        </div>
+        <Button 
+        className='includeButton'
+          title='Incluir'
         />
       </div>
-      <Button 
-      className='includeButton'
-        title='Incluir'
-      />
     </Container>
   )
 }

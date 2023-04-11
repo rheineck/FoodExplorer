@@ -65,4 +65,54 @@ export const Container = styled.div`
       font-size: 16px;
     }
   }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  @media(min-width: 1366px) {
+    width: 304px;
+    height: 462px;
+
+    .desktopOnly {
+      display: flex;
+      font-family: 'Roboto';
+      font-size: 14px;
+      font-weight: 400;
+      margin: 15px 24px;
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+      text-align: center;
+    }
+
+    .title {
+      button {
+        font-size: 2.4rem;
+        font-weight: 700;
+      }
+
+      svg {
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    .desktopButtons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .includeDishes {
+      margin-bottom: 0;
+      align-items: center;
+      color: ${({ theme }) => theme.COLORS.LIGHT_300};
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'Roboto';
+    }
+
+    .includeButton {
+      width: 92px;
+      height: 48px;
+    }
+  }
 `
