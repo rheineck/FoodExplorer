@@ -73,6 +73,21 @@ export const Container = styled.div`
   @media(min-width: 1366px) {
     width: 304px;
     height: 462px;
+    padding: 0;
+
+    img {
+      height: 176px;
+      width: 176px;
+    }
+    
+    h1 {
+      font-size: 32px;
+    }
+
+    .favorite {
+      top: 16px;
+      right: -120px;
+    }
 
     .desktopOnly {
       display: flex;
@@ -85,6 +100,8 @@ export const Container = styled.div`
     }
 
     .title {
+      margin-bottom: 0;
+
       button {
         font-size: 2.4rem;
         font-weight: 700;
