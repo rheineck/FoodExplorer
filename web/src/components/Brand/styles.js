@@ -7,12 +7,12 @@ export const Container = styled.div`
   min-width: 197px;
   max-width: 280px;
 
-  h1 {
-    font-size: 22px;
-    font-weight: 700;
-  }
-  
-  img {
+  font-family: 'Roboto';
+  font-size: 22px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    
+  > img {
     height: 30px;
     width: 30px;
     margin-right: 12px;

@@ -10,14 +10,15 @@ export const Container = styled.footer`
   display: flex;
   justify-content: space-between;
   
-  h1 {
-    color: ${({ theme }) => theme.COLORS.LIGHT_700};
-    font-size: 1.6rem;
-  }
+  font-family: 'Roboto';
+  font-weight: 700;
+  color: ${({ theme }) => theme.COLORS.LIGHT_700};
+  font-size: 1.6rem;
 
-  span {
+  > span {
     color: ${({ theme }) => theme.COLORS.LIGHT_200};
     font-size: 1.2rem;
+    font-weight: 400;
   }
 
   .brand {
