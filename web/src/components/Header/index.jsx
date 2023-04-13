@@ -37,7 +37,6 @@ export function Header() {
         className='desktopOnly'
         icon={SignOut}
       />
-      
     </Container>
   )
 }

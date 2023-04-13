@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
+  grid-area: footer;
+
   height: 77px;
   width: 100vw;
   padding: 29px 26px;
@@ -29,5 +31,28 @@ export const Container = styled.footer`
       height: 18px;
       width: 18px;
     }
+  }
+
+  @media(min-width: 1366px) {
+
+    padding-left: 122px;
+    padding-right: 122px;
+
+    font-size: 2.4rem;
+
+    .brand img {
+      height: 30px;
+      width: 30px;
+    }
+
+    > span {
+      font-size: 1.4rem;
+    }
+
+  }
+
+  @media(width: 1920px) {
+    padding-left: 27.7rem;
+    padding-right: 27.7rem;
   }
 `

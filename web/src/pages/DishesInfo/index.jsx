@@ -23,43 +23,45 @@ export function DishesInfo () {
           src={Ravanello} 
           className='dishImg'
         />
-        <h1>Salada Ravanello</h1>
-        <span>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</span>
-        <div className="ingredients">
-          <Tags 
-            title='alface'
-          />
-          <Tags 
-            title='cebola'
-          />
-          <Tags 
-            title='pão naan'
-          />
-          <Tags 
-            title='pepino'
-          />
-          <Tags 
-            title='rabanete'
-          />
-          <Tags 
-            title='tomate'
-          />
-        </div>
-        <div className="buttons">
-          <div className="includeDishes">
-            <ButtonText
-              icon={Minus}
+        <div className="title">
+          <h1>Salada Ravanello</h1>
+          <span>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</span>
+          <div className="ingredients">
+            <Tags 
+              title='alface'
             />
-            01
-            <ButtonText 
-              icon={Plus}
+            <Tags 
+              title='cebola'
+            />
+            <Tags 
+              title='pão naan'
+            />
+            <Tags 
+              title='pepino'
+            />
+            <Tags 
+              title='rabanete'
+            />
+            <Tags 
+              title='tomate'
             />
           </div>
-          <Button 
-            className='includeButton'
-            title={`Pedir R$ 25.00`}
-            icon={Receipt}
-          />
+          <div className="buttons">
+            <div className="includeDishes">
+              <ButtonText
+                icon={Minus}
+              />
+              01
+              <ButtonText 
+                icon={Plus}
+              />
+            </div>
+            <Button 
+              className='includeButton'
+              title={`Pedir R$ 25.00`}
+              icon={Receipt}
+            />
+          </div>
         </div>
       </main>
       <Footer />
