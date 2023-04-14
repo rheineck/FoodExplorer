@@ -121,6 +121,7 @@ export const Container = styled.div`
     .backbutton, main {
       margin-left: 27.7rem;
       margin-right: 27.7rem;
+      margin-bottom: 142px;
     }
   }
 `

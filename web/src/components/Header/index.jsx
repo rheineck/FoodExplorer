@@ -23,7 +23,7 @@ export function Header() {
       </div>
       <Button
         className='desktopOnly'
-        title='Pedido (0)'
+        title='Pedido'
         icon={Receipt}
       />
       <div className="popup mobileOnly">

@@ -7,6 +7,7 @@ export const Container = styled.div`
   max-width: auto;
   
   padding: 56px 28px 24px;
+  gap: 32px;
   background: ${({ theme }) => theme.COLORS.DARK_700};
 
   display: flex;
