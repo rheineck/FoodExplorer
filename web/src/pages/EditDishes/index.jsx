@@ -1,13 +1,16 @@
-import { CaretLeft } from '@phosphor-icons/react'
+import { CaretLeft, UploadSimple } from '@phosphor-icons/react'
 
 import { Container, Form } from './styles'
 
 import { Header } from '../../components/Header'
 import { ButtonText } from '../../components/ButtonText'
 import { Input } from '../../components/Input'
+import { InputFile } from '../../components/InputFile'
+import { Select } from '../../components/Select'
 import { Textarea } from '../../components/TextArea'
 import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
+import { Ingredient } from '../../components/Ingredient'
 
 export function EditDishes() {
   return (
@@ -24,47 +27,58 @@ export function EditDishes() {
             Editar prato
           </header>
 
-          <label htmlFor="dishImg">
+          <label>
             Imagem do prato
-            <input 
-              id="dishImg"
-              type="file" 
-            />
           </label>
+          <InputFile />
 
           <label htmlFor="dishName">
             Nome
-            <Input 
-              placeholder="Salada César"
-            />
           </label>
+          <Input 
+            placeholder="Salada César"
+          />
 
+        
           <label htmlFor="dishCategory">
             Categoria
-            <select>
-              <option>Refeições</option>
-              <option>Sobremesas</option>
-              <option>Bebidas</option>
-            </select>
           </label>
+          <Select />
 
+
+        
           <label htmlFor="ingredients">
-
+            Ingredientes
+            <div className="ingredients">
+              <Ingredient 
+                value='Pão Naan'
+              />
+              <Ingredient 
+                isNew
+                placeholder='Adicionar'
+              />
+            </div>
           </label>
 
+
+        
           <label htmlFor="price">
             Preço
-            <Input 
-              placeholder="R$ 40.00"
-            />
           </label>
+          <Input 
+            placeholder="R$ 40.00"
+          />
 
+        
+        
           <label htmlFor="description">
             Descrição
-            <Textarea 
-              placeholder="A Salada César é uma opção refrescante para o seu verão"
-            />
           </label>
+          <Textarea 
+            placeholder="A Salada César é uma opção refrescante para o seu verão"
+          />
+
+
           <div className="buttons">
             <Button 
               title="Excluir Prato"
