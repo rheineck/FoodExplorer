@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  grid-area: header;
+  grid-area: header;  
 
   height: 120px;
   max-width: auto;
@@ -14,6 +14,10 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  .disabled {
+    display: none;
+  }
+
   button {
     background: none;
     width: fit-content;
@@ -24,6 +28,7 @@ export const Container = styled.div`
     filter: none;
   }
 
+  
   
   .desktopOnly {
     display: none;

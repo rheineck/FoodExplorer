@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Container = styled.footer`
   grid-area: footer;
 
+  bottom: 0;
+
   height: 77px;
   width: 100vw;
   padding: 29px 26px;

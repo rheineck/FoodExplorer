@@ -10,7 +10,9 @@ export function Menu() {
   return (
     <Container>
       <header>
-        <X size={18}/>
+        <button>
+          <X size={18}/>
+        </button>
         Menu
       </header>
       <main>
@@ -21,6 +23,12 @@ export function Menu() {
               type='text'
           />
           <ButtonText 
+            id="button"
+            className="adminOnly disabled"
+            title="Novo Prato"
+          />
+          <ButtonText
+            id="button" 
             title="Sair"
           />
         </div>

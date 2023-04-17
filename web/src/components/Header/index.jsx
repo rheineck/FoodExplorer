@@ -2,6 +2,7 @@ import { Container } from './styles'
 import { List, Receipt, SignOut, MagnifyingGlass } from '@phosphor-icons/react'
 
 import { Brand } from '../Brand'
+import { AdminBrand } from '../AdminBrand'
 import { Input } from '../Input'
 import { Button } from '../Button'
 
@@ -13,7 +14,12 @@ export function Header() {
         icon={List}
         className='mobileOnly'
       />
-      <Brand />
+      {/* <Brand 
+        className="disabled"
+      /> */}
+      <AdminBrand 
+        className="adminOnly"
+      />
       <div className="desktopOnly">
         <Input 
           icon={MagnifyingGlass}

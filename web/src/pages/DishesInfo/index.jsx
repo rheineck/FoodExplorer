@@ -46,7 +46,7 @@ export function DishesInfo () {
               title='tomate'
             />
           </div>
-          <div className="buttons">
+          <div className="buttons disabled">
             <div className="includeDishes">
               <ButtonText
                 icon={Minus}
@@ -62,6 +62,10 @@ export function DishesInfo () {
               icon={Receipt}
             />
           </div>
+          <Button 
+            className="adminOnly editDishes"
+            title="Editar Prato"
+          />
         </div>
       </main>
       <Footer />

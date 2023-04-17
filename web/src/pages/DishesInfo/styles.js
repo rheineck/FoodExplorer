@@ -71,6 +71,15 @@ export const Container = styled.div`
     gap: 12px;
   }
 
+  .disabled {
+    display: none;
+  }
+
+  .editDishes {
+    height: 48px;
+    width: 316px;
+  }
+
   @media(min-width: 1366px) {
 
     main {
@@ -114,6 +123,10 @@ export const Container = styled.div`
 
     .includeButton {
       margin-left: 33px;
+    }
+
+    .editDishes {
+      width: 131px;
     }
   }
 

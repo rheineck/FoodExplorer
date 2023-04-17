@@ -16,7 +16,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  h1 {
+  h1, textarea, input {
     font-family: 'Roboto';
   }
 

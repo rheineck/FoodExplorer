@@ -24,18 +24,36 @@ export const Container = styled.div`
     padding-top: 36px;
   }
 
+  header button {
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  
   input {
     font-family: 'Roboto';
     font-size: 16px;
     width: 100%;
   }
-
+  
   .props {
     height: 138px;
     margin-top: 36px;
     margin-left: 28px;
     margin-right: 28px;
     margin-bottom: 560px;
+  }
+
+  .adminOnly {
+    display: flex;
+  }
+
+  .disabled {
+    display: none;
+  }
+
+  #button {
     border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
   }
 
