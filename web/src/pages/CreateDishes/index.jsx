@@ -12,7 +12,7 @@ import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 import { Ingredient } from '../../components/Ingredient'
 
-export function EditDishes() {
+export function CreateDishes() {
   return (
     <Container>
       <Header />
@@ -24,7 +24,7 @@ export function EditDishes() {
         />
         <Form>
           <header>
-            Editar prato
+            Adicionar prato
           </header>
 
           <section>
@@ -41,7 +41,7 @@ export function EditDishes() {
               </h2>
               <Input 
                 className="dishName"
-                placeholder="Salada César"
+                placeholder="Ex: Salada César"
               />
             </div>
 
@@ -77,7 +77,7 @@ export function EditDishes() {
               </h2>
               <Input
                 className="dishPrice" 
-                placeholder="R$ 40.00"
+                placeholder="Ex: R$ 40.00"
               />
             </div>
           </section>
@@ -86,13 +86,10 @@ export function EditDishes() {
             Descrição
           </h2>
           <Textarea 
-            placeholder="A Salada César é uma opção refrescante para o seu verão"
+            placeholder="Fale brevemente sobre o prato, sua composição e ingredientes"
           />
 
           <div className="buttons">
-            <Button 
-              title="Excluir Prato"
-            />
             <Button 
               title="Salvar"
             />

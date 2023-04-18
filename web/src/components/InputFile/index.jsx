@@ -6,7 +6,7 @@ export function InputFile() {
   return (
     <Container>
       <UploadSimple size={24}/>
-      Seleciona a imagem para alterá-la
+      Selecione a imagem
       <input
         type="file" 
       />

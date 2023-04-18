@@ -24,4 +24,16 @@ export const Container = styled.div`
     font-size: 12px;
     margin-left: 8px;
   }
+
+  .desktopOnly {
+    display: flex;
+    align-items: center;
+  }
+
+  @media(min-width: 1366px) {
+    .desktopOnly {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
 `

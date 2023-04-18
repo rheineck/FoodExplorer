@@ -71,14 +71,6 @@ export const Form = styled.form`
       width: 100%;
     }
   }
-
-  button:first-child {
-    background: ${({ theme }) => theme.COLORS.DARK_800};
-    
-    &:hover {
-      background: ${({ theme }) => theme.COLORS.DARK_1000};
-    }
-  }
   
   .ingredients {
     display: flex;
@@ -118,7 +110,11 @@ export const Form = styled.form`
     }
 
     .buttons {
-      padding-left: 781px;
+      padding-left: 948px;
+
+      button {
+        width: 190px;
+      }
     }
   }
 `

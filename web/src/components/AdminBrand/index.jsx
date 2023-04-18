@@ -5,8 +5,10 @@ export function AdminBrand() {
   return (
     <Container>
       <img src={logoImg} alt="Logo FoodExplorer" />
-      food explorer
-      <span>admin</span>
+      <div className="desktopOnly">
+        food explorer
+        <span>admin</span>
+      </div>
     </Container>
   )
 }
