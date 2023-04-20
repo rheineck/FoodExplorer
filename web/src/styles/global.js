@@ -45,4 +45,19 @@ export default createGlobalStyle`
     width: 28px;
   }
 
+  @media(min-width: 1366px) {
+    main {
+      margin-right: 123px;
+      margin-left: 123px;
+    }
+    
+  }
+
+  @media(width: 1920px) {
+    main {
+      margin-left: 277px;
+      margin-right: 277px;
+    }
+  }
+
 `
