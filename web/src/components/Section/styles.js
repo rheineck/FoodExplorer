@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  width: 1122px;
+
+  margin: 24px;
+  width: 1200px;
   height: 100%;
   margin-top: 48px;
   
@@ -9,7 +11,7 @@ export const Container = styled.section`
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-family: 'Poppins';
     font-weight: 500;
-    font-size: 32px;
+    font-size: 18px;
     margin-bottom: 23px;
   }
 
@@ -22,34 +24,69 @@ export const Container = styled.section`
     height: 40px;
   }
 
+  @media(min-width: 1366px) {
+    h2 {
+      font-size: 32px;
+    }
+  }
+
 `
 
 export const Slider = styled.div`
-  width: 1366px;
-  height: 462px;
-  overflow: hidden;
+  
+  width: 100vw;
+  overflow-x: auto;
   display: flex;
-
+  
   > div {
     display: flex;
     gap: 16px;
-  }
-
-  .buttonLeft, .buttonRight {
-    position: absolute;
-    width: 277px;
-    height: 462px;
-    z-index: 99;
-
-  }
-  .buttonLeft {
-    left: 277px;
-    background: linear-gradient(270deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
+    height: 341px;
   }
   
-  .buttonRight {
-    right: 277px;
-    background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
+  .desktopOnly {
+    display: none;
+  }
+  
+  @media(min-width: 1366px) {
+    width: 100%;
+    height: 462px;
+    overflow: hidden;
+
+    .mobileOnly {
+      display: none;
+    }
+
+    .desktopOnly {
+      display: block;
+    }
+
+    .buttonLeft, .buttonRight {
+      position: absolute;
+      width: 277px;
+      height: 462px;
+      z-index: 99;  
+    }
+
+    .buttonLeft {
+      left: 122px;
+      background: linear-gradient(270deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
+    }
+    
+    .buttonRight {
+      right: 122px;
+      background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
+    }
+  }
+
+  @media(width: 1920px) {
+    .buttonLeft {
+      left: 277px;
+    }
+
+    .buttonRight {
+      right: 277px;
+    }
   }
 
 `

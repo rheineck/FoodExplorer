@@ -9,7 +9,7 @@ export function Section ({ title, children }) {
 
       <Slider>
         <button
-          className='buttonLeft'
+          className='buttonLeft desktopOnly'
         >
           <CaretLeft size={40} />
         </button>
@@ -17,7 +17,7 @@ export function Section ({ title, children }) {
           {children}
         </div>
         <button
-          className='buttonRight'
+          className='buttonRight desktopOnly'
         >
           <CaretRight size={40} />
         </button>

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   grid-area: header;  
-
   height: 120px;
   max-width: auto;
   
@@ -28,8 +27,6 @@ export const Container = styled.div`
     filter: none;
   }
 
-  
-  
   .desktopOnly {
     display: none;
   }

@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   grid-area: content;
-
+  
   section:last-child {
     margin-bottom: 48px;
   } 
