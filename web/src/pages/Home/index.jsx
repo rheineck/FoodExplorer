@@ -2,6 +2,7 @@ import { Container, Content } from './styles'
 
 import { Header } from '../../components/Header'
 import { Info } from '../../components/Info'
+import { Section } from '../../components/Section'
 import { Card } from '../../components/Card'
 import { Footer } from '../../components/Footer'
 
@@ -12,24 +13,46 @@ export function Home () {
       <main>
         <Content>
           <Info />
-          <h1 id='dishesCategory'>Refeições</h1>
-          <div id="cards">
+          <Section
+            title="Refeições"
+          >
             <Card />
             <Card />
             <Card />
-          </div>
-          <h1 id='dishesCategory'>Sobremesas</h1>
-          <div id="cards">
             <Card />
             <Card />
             <Card />
-          </div>
-          <h1 id='dishesCategory'>Bebidas</h1>
-          <div id="cards">
             <Card />
             <Card />
             <Card />
-          </div>
+            <Card />
+          </Section>
+          <Section
+            title="Sobremesas"
+          >
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </Section>
+          <Section
+            title="Bebidas"
+          >
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </Section>
         </Content>
       </main>
       <Footer />
