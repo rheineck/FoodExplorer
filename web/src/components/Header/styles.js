@@ -17,6 +17,12 @@ export const Container = styled.div`
     display: none;
   }
 
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   button {
     background: none;
     width: fit-content;
@@ -51,9 +57,15 @@ export const Container = styled.div`
   }
   
   @media(min-width: 1366px) { 
-    
-    padding-left: 122px;
-    padding-right: 122px;
+
+    header {
+      margin-left: 122px;
+      gap: 32px;
+    }
+
+    input {
+      width: 490px;
+    }
     
     .mobileOnly {
       display: none;
@@ -63,7 +75,7 @@ export const Container = styled.div`
       display: flex;
     }
     
-    button {
+    .receiptButton {
       background: ${({ theme }) => theme.COLORS.TOMATO_100};
       width: 216px;
     }
@@ -74,20 +86,16 @@ export const Container = styled.div`
     
     button:last-child {
       background: none;
-      width: fit-content;
-    }
-    
-    button:last-child svg {
-      height: 32px;
-      width: 32px;
-    }
-    input {
-      width: 581px;
+      border: none;
     }
   }
   
   @media(width: 1920px) {
     padding: 0 27.7rem;
+
+    input {
+      width: 581px;
+    }
   }
 
 `

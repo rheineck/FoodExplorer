@@ -10,6 +10,7 @@ import { Button } from '../Button'
 export function Header() {
   return(
     <Container>
+      <header>
       <Button 
         icon={List}
         className='mobileOnly'
@@ -27,10 +28,14 @@ export function Header() {
           type='text'
         />
       </div>
-      <Button
-        className='desktopOnly'
+      {/* <Button
+        className='receiptButton desktopOnly'
         title='Pedido'
         icon={Receipt}
+      /> */}
+      <Button
+        className='receiptButton desktopOnly'
+        title='Novo Prato'
       />
       <div className="popup mobileOnly">
         0
@@ -39,10 +44,12 @@ export function Header() {
         className='mobileOnly'
         icon={Receipt}
       />
-      <Button 
+      <button
         className='desktopOnly'
-        icon={SignOut}
-      />
+      >
+        <SignOut size={32} />
+      </button>
+      </header>
     </Container>
   )
 }

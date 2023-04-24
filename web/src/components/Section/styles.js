@@ -71,7 +71,7 @@ export const Slider = styled.div`
     }
 
     .buttonLeft {
-      left: 122px;
+      /* left: 122px; */
       background: linear-gradient(270deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
     }
     
@@ -83,10 +83,10 @@ export const Slider = styled.div`
 
   @media(width: 1920px) {
 
-    width: 1220px;
+    width: 1200px;
 
     .buttonLeft {
-      left: 277px;
+      /* left: 277px; */
     }
 
     .buttonRight {

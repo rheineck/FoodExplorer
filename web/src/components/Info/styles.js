@@ -9,7 +9,7 @@ export const Container = styled.div`
   width: 376px;
   height: 120px;
 
-  margin: 50px;
+  /* margin: 50px; */
 
   grid-template-columns: 1fr 1fr;
   border-radius: 3px;
@@ -70,5 +70,9 @@ export const Container = styled.div`
         font-size: 16px;
       }
     }
-    }
+  }
+
+  @media(width: 1920px) {
+    width: 1200px;
+  }
 `
