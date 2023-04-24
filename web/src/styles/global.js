@@ -47,8 +47,8 @@ export default createGlobalStyle`
 
   @media(min-width: 1366px) {
     main {
-      margin-right: 123px;
-      margin-left: 123px;
+      /* margin-right: 123px; */
+      /* margin-left: 123px; */
     }
     
   }
@@ -56,7 +56,7 @@ export default createGlobalStyle`
   @media(width: 1920px) {
     main {
       margin-left: 277px;
-      margin-right: 277px;
+      /* margin-right: 277px; */
     }
   }
 

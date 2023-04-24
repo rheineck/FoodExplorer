@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.section`
 
-  margin: 24px;
-  width: 1200px;
+  /* margin: 24px; */
+  width: 1120px;
   height: 100%;
   margin-top: 48px;
   
@@ -25,6 +25,7 @@ export const Container = styled.section`
   }
 
   @media(min-width: 1366px) {
+    margin: 0;
     h2 {
       font-size: 32px;
     }
@@ -34,7 +35,7 @@ export const Container = styled.section`
 
 export const Slider = styled.div`
   
-  width: 100vw;
+  width: 1120px;
   overflow-x: auto;
   display: flex;
   
@@ -52,6 +53,7 @@ export const Slider = styled.div`
     width: 100%;
     height: 462px;
     overflow: hidden;
+    margin-bottom: 48px;
 
     .mobileOnly {
       display: none;
@@ -80,6 +82,9 @@ export const Slider = styled.div`
   }
 
   @media(width: 1920px) {
+
+    width: 1220px;
+
     .buttonLeft {
       left: 277px;
     }

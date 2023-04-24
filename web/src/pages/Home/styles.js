@@ -16,5 +16,10 @@ export const Content = styled.div`
   
   section:last-child {
     margin-bottom: 48px;
-  } 
+  }
+  
+  @media(min-width: 1366px) {
+    margin-left: 124px;
+    margin-right: 124px;
+  }
 `
