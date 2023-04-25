@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   height: 100vh;
   
-  margin: 15.8rem 0;
+  padding: 15.8rem 6.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,10 +12,24 @@ export const Container = styled.div`
     display: none;
   }
 
+  .brand {
+    display: flex;
+    font-size: 38px;
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    font-family: 'Roboto';
+    font-weight: 700;
+
+    > img {
+      height: 42px;
+      width: 42px;
+      margin-right: 12px;
+    }
+  }
+
   @media(min-width: 1200px) {
     flex-direction: row;
     justify-content: space-between;
-    
+
     margin: 0 15.4rem 0 10.8rem;
 
     .title{
@@ -29,13 +43,17 @@ export const Container = styled.div`
       width: 100%;
     }
   }
+
 `
 
 export const Form = styled.form`
   margin-top: 7.3rem;
+  margin-bottom: 3.2rem;
+  width: 100%;
+  align-items: center;
 
-  input {
-    margin-bottom: 3.2rem;
+  div {
+    margin-bottom: 32px;
   }
 
   span {
@@ -47,10 +65,20 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
 
+  button {
+    width: 100%;
+  }
+
+  button:last-child {
+    font-size: 14px;
+    justify-content: center;
+    margin-top: 32px;
+  }
+
   @media(min-width: 1200px) {
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
-    height: 540px;
-    width: 480px;
+    height: 62rem;
+    width: 48rem;
     border-radius: 1.6rem;
 
     padding: 6.4rem;

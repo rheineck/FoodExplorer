@@ -3,13 +3,27 @@ import styled from 'styled-components'
 export const Container = styled.div`
   height: 100vh;
   
-  padding: 15.8rem 0;
+  padding: 15.8rem 6.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   .title {
     display: none;
+  }
+
+  .brand {
+    display: flex;
+    font-size: 38px;
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    font-family: 'Roboto';
+    font-weight: 700;
+
+    > img {
+      height: 42px;
+      width: 42px;
+      margin-right: 12px;
+    }
   }
 
   @media(min-width: 1200px) {
@@ -34,9 +48,12 @@ export const Container = styled.div`
 
 export const Form = styled.form`
   margin-top: 7.3rem;
+  margin-bottom: 3.2rem;
+  width: 100%;
+  align-items: center;
 
-  input {
-    margin-bottom: 3.2rem;
+  div {
+    margin-bottom: 32px;
   }
 
   span {
@@ -46,6 +63,16 @@ export const Form = styled.form`
     margin-bottom: 8px;
   
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
+  }
+
+  button {
+    width: 100%;
+  }
+
+  button:last-child {
+    font-size: 14px;
+    justify-content: center;
+    margin-top: 32px;
   }
 
   @media(min-width: 1200px) {

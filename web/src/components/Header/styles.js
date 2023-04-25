@@ -1,46 +1,28 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  grid-area: header;  
-  height: 120px;
-  max-width: auto;
-  
-  padding: 56px 28px 24px;
-  gap: 32px;
-  background: ${({ theme }) => theme.COLORS.DARK_700};
-
+export const Container = styled.header`
+  grid-area: header;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 
-  .disabled {
-    display: none;
-  }
+  height: 120px;
+  padding: 56px 28px 24px;
 
-  header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  background-color: ${({ theme }) => theme.COLORS.DARK_700};
+
   button {
     background: none;
-    width: fit-content;
   }
 
   button:hover {
     background: none;
-    filter: none;
   }
 
-  .desktopOnly {
-    display: none;
-  }
-  
   .popup {
-    position: absolute;
-    right: 45px;
-    top: 56px;
+    position: relative;
+    left: 50px;
+    bottom: 10px;
     
     padding: 0 5.5px;
     
@@ -55,47 +37,48 @@ export const Container = styled.div`
     font-size: 14px;
     font-weight: 500;
   }
-  
+
+  .desktopOnly {
+    display: none;
+  }
+
   @media(min-width: 1366px) { 
 
-    header {
-      margin-left: 122px;
-      gap: 32px;
-    }
+    margin-left: 122px;
+    gap: 32px;
 
     input {
       width: 490px;
     }
-    
+
     .mobileOnly {
       display: none;
     }
-    
+
     .desktopOnly {
       display: flex;
     }
-    
+
     .receiptButton {
       background: ${({ theme }) => theme.COLORS.TOMATO_100};
       width: 216px;
     }
-    
+
     button:hover {
       background: ${({ theme }) => theme.COLORS.TOMATO_400};
     }
-    
+
     button:last-child {
       background: none;
       border: none;
     }
-  }
-  
-  @media(width: 1920px) {
+    }
+
+    @media(width: 1920px) {
     padding: 0 27.7rem;
 
     input {
       width: 581px;
     }
   }
-
 `

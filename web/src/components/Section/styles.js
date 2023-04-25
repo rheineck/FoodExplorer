@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.section`
 
-  /* margin: 24px; */
-  width: 1120px;
+  margin-left: 24px;
+  width: 384px;
   height: 100%;
   margin-top: 48px;
   
@@ -14,17 +14,18 @@ export const Container = styled.section`
     font-size: 18px;
     margin-bottom: 23px;
   }
-
+  
   button {
     border: none;
   }
-
+  
   svg {
     width: 40px;
     height: 40px;
   }
-
+  
   @media(min-width: 1366px) {
+    width: 1120px;
     margin: 0;
     h2 {
       font-size: 32px;
@@ -35,7 +36,7 @@ export const Container = styled.section`
 
 export const Slider = styled.div`
   
-  width: 1120px;
+  width: 384px;
   overflow-x: auto;
   display: flex;
   
@@ -50,7 +51,7 @@ export const Slider = styled.div`
   }
   
   @media(min-width: 1366px) {
-    width: 100%;
+    width: 1120px;
     height: 462px;
     overflow: hidden;
     margin-bottom: 48px;

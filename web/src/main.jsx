@@ -7,12 +7,16 @@ import theme from './styles/theme'
 
 import { Home } from './pages/Home'
 import { DishesInfo } from './pages/DishesInfo'
+import { EditDishes } from './pages/EditDishes'
+import { CreateDishes } from './pages/CreateDishes'
+import { SignIn } from './pages/SignIn'
+import { SignUp } from './pages/SignUp'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
     <GlobalStyles />
-      <Home />
+      <SignIn />
     </ThemeProvider>
   </React.StrictMode>,
 )

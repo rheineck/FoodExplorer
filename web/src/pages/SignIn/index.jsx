@@ -1,4 +1,5 @@
 import { Container, Form } from './styles'
+import LogoImg from '../../assets/Logo.svg'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
@@ -8,7 +9,10 @@ import { Brand } from '../../components/Brand'
 export function SignIn() {
   return (
     <Container>
-      <Brand />
+      <div className="brand">
+        <img src={LogoImg} alt="Logo FoodExplorer" />
+        food explorer
+      </div>
       <Form>
         <h1 className='title'>Faça Login</h1>
         <span>E-mail</span>
