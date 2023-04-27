@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { CaretLeft } from '@phosphor-icons/react'
 
 import { Container, Form } from './styles'
@@ -17,11 +19,13 @@ export function EditDishes() {
     <Container>
       <Header />
       <main>
-        <ButtonText
-          className='backbutton'
-          title="Voltar"
-          icon={CaretLeft}
-        />
+        <Link to='/'>
+          <ButtonText
+            className='backbutton'
+            title="Voltar"
+            icon={CaretLeft}
+          />
+        </Link>
         <Form>
           <header>
             Editar prato

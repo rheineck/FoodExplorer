@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { X, MagnifyingGlass } from '@phosphor-icons/react'
 
 import { Container } from './styles'
@@ -10,9 +12,11 @@ export function Menu() {
   return (
     <Container>
       <header>
-        <button>
-          <X size={18}/>
-        </button>
+        <Link to='/'>
+          <button>
+            <X size={18}/>
+          </button>
+        </Link>
         Menu
       </header>
       <main>
@@ -22,11 +26,13 @@ export function Menu() {
               placeholder='Busque por prato ou ingredientes'
               type='text'
           />
-          <ButtonText 
-            id="button"
-            className="adminOnly disabled"
-            title="Novo Prato"
-          />
+          <Link to='/edit/:id'>
+            <ButtonText 
+              id="button"
+              className="adminOnly disabled"
+              title="Novo Prato"
+            />
+          </Link>
           <ButtonText
             id="button" 
             title="Sair"

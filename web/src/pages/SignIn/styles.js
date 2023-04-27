@@ -69,8 +69,9 @@ export const Form = styled.form`
     width: 100%;
   }
 
-  button:last-child {
+  a {
     font-size: 14px;
+    display: flex;
     justify-content: center;
     margin-top: 32px;
   }

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { Container } from './styles'
 import { List, Receipt, SignOut, MagnifyingGlass } from '@phosphor-icons/react'
 
@@ -10,10 +12,12 @@ import { Button } from '../Button'
 export function Header() {
   return(
     <Container>
-      <Button 
-        icon={List}
-        className='mobileOnly'
-      />
+      <Link to='/menu'>
+        <Button 
+          icon={List}
+          className='mobileOnly'
+        />
+      </Link>
       <Brand 
         className="disabled"
       />
@@ -27,15 +31,25 @@ export function Header() {
           type='text'
         />
       </div>
-      <Button
-        className='receiptButton desktopOnly'
-        title='Pedido'
-        icon={Receipt}
-      />
-      {/* <Button
-        className='receiptButton desktopOnly'
-        title='Novo Prato'
-      /> */}
+      <Link to='/'>
+        Meu Favorito
+      </Link>
+      <Link to='/order'>
+        Histórico de Pedidos
+      </Link>
+      <Link to='/'>
+        <Button
+          className='receiptButton desktopOnly'
+          title='Pedido'
+          icon={Receipt}
+        />
+      </Link>
+      {/* <Link to='/new'>
+        <Button
+          className='receiptButton desktopOnly'
+          title='Novo Prato'
+        />
+      </Link> */}
       <div className="popup mobileOnly">
         0
       </div>

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { CaretRight, Minus, Plus, HeartStraight } from '@phosphor-icons/react'
 import Ravanello from '../../assets/images/Ravanello.png'
 
@@ -15,9 +17,11 @@ export function Card({ data, ...rest }) {
       />
       <img src={Ravanello} alt="Salada Ravanello" />
       <div className="title">
-        <ButtonText
-          title='Salada Ravanello'
-        />
+        <Link to='/dishes/:id'>
+          <ButtonText
+            title='Salada Ravanello'
+          />
+        </Link>
         <CaretRight size={14}/>
       </div>
       <div className="desktopOnly">

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { CaretLeft, Minus, Plus, Receipt } from '@phosphor-icons/react'
 import Ravanello from '../../assets/images/Ravanello.png'
 
@@ -13,11 +15,13 @@ export function DishesInfo () {
   return (
     <Container>
       <Header />
-      <ButtonText
-        className='backbutton'
-        title="Voltar"
-        icon={CaretLeft}
-      />
+      <Link to='/'>
+        <ButtonText
+          className='backbutton'
+          title="Voltar"
+          icon={CaretLeft}
+        />
+      </Link>
       <main>
         <img 
           src={Ravanello} 
@@ -62,10 +66,12 @@ export function DishesInfo () {
               icon={Receipt}
             />
           </div>
-          <Button 
-            className="adminOnly editDishes"
-            title="Editar Prato"
-          />
+          <Link to='/edit/:id'>
+            <Button 
+              className="adminOnly editDishes"
+              title="Editar Prato"
+            />
+          </Link>
         </div>
       </main>
       <Footer />

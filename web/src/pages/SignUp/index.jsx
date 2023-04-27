@@ -1,12 +1,15 @@
+import { Link, useNavigate } from "react-router-dom";
+
 import { Container, Form } from "./styles";
 import LogoImg from '../../assets/Logo.svg'
 
-import { Brand } from "../../components/Brand";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
-import { ButtonText } from "../../components/ButtonText"
 
 export function SignUp() {
+
+  const navigate = useNavigate()
+
   return (
     <Container>
     <div className="brand">
@@ -33,9 +36,9 @@ export function SignUp() {
       <Button 
         title="Criar Conta"
       />
-      <ButtonText 
-        title="Já tenho uma conta"
-      />
+      <Link to="/">
+        Já tenho uma conta
+      </Link>
     </Form>
   </Container>
   )

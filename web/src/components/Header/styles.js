@@ -48,7 +48,7 @@ export const Container = styled.header`
     gap: 32px;
 
     input {
-      width: 490px;
+      /* width: 490px; */
     }
 
     .mobileOnly {
@@ -59,26 +59,29 @@ export const Container = styled.header`
       display: flex;
     }
 
+    a {
+      font-size: 16px;
+    }
+    
+    button:hover {
+      background: ${({ theme }) => theme.COLORS.TOMATO_400};
+    }
+    
+    button:last-child {
+      border: none;
+    }
+
     .receiptButton {
       background: ${({ theme }) => theme.COLORS.TOMATO_100};
       width: 216px;
     }
-
-    button:hover {
-      background: ${({ theme }) => theme.COLORS.TOMATO_400};
-    }
-
-    button:last-child {
-      background: none;
-      border: none;
-    }
-    }
+  }
 
     @media(width: 1920px) {
     padding: 0 27.7rem;
 
     input {
-      width: 581px;
+      /* width: 581px; */
     }
   }
 `

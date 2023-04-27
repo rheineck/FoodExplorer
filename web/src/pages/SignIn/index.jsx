@@ -5,6 +5,7 @@ import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
 import { Brand } from '../../components/Brand'
+import { Link } from 'react-router-dom'
 
 export function SignIn() {
   return (
@@ -28,9 +29,9 @@ export function SignIn() {
         <Button 
           title="Entrar"
         />
-        <ButtonText 
-          title="Criar uma Conta"
-        />
+        <Link to="/register" >
+          Criar uma Conta
+        </Link>
       </Form>
     </Container>
   )

@@ -29,6 +29,11 @@ export default createGlobalStyle`
     transition: filter 0.2s;
   }
 
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  }
+
   button:hover {
     filter: brightness(0.9);
   }
