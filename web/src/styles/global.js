@@ -60,7 +60,7 @@ export default createGlobalStyle`
 
   @media(width: 1920px) {
     main {
-      margin-left: 277px;
+      /* margin-left: 277px; */
       /* margin-right: 277px; */
     }
   }

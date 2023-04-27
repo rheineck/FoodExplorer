@@ -31,10 +31,16 @@ export function Header() {
           type='text'
         />
       </div>
-      <Link to='/'>
+      <Link 
+        to='/favorites'
+        className='desktopOnly'
+      >
         Meu Favorito
       </Link>
-      <Link to='/order'>
+      <Link 
+        to='/order'
+        className='desktopOnly'
+      >
         Histórico de Pedidos
       </Link>
       <Link to='/'>

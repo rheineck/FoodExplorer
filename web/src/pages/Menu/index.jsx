@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+import { useNavigate } from 'react-router-dom'
+
 import { X, MagnifyingGlass } from '@phosphor-icons/react'
 
 import { Container } from './styles'
@@ -9,14 +11,19 @@ import { Input } from '../../components/Input'
 import { Footer } from '../../components/Footer'
 
 export function Menu() {
+
+  const navigate = useNavigate()
+
+  function handleBack() {
+    navigate(-1)
+  }
+
   return (
     <Container>
       <header>
-        <Link to='/'>
-          <button>
-            <X size={18}/>
-          </button>
-        </Link>
+        <button onClick={handleBack}>
+          <X size={18}/>
+        </button>
         Menu
       </header>
       <main>
@@ -31,6 +38,24 @@ export function Menu() {
               id="button"
               className="adminOnly disabled"
               title="Novo Prato"
+            />
+          </Link>
+          <Link to='/favorites'>
+            <ButtonText 
+              id="button"
+              title="Favoritos"
+            />
+          </Link>
+          <Link to='/order'>
+            <ButtonText 
+              id="button"
+              title="Histórico"
+            />
+          </Link>
+          <Link to='/'>
+            <ButtonText 
+              id="button"
+              title="Home"
             />
           </Link>
           <ButtonText
