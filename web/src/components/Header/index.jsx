@@ -27,7 +27,7 @@ export function Header() {
       <div className="desktopOnly">
         <Input 
           icon={MagnifyingGlass}
-          placeholder='Busque por prato ou ingredientes'
+          placeholder='Pesquisar'
           type='text'
         />
       </div>
@@ -38,12 +38,12 @@ export function Header() {
         Meu Favorito
       </Link>
       <Link 
-        to='/order'
+        to='/order_history'
         className='desktopOnly'
       >
         Histórico de Pedidos
       </Link>
-      <Link to='/'>
+      <Link to='/order'>
         <Button
           className='receiptButton desktopOnly'
           title='Pedido'

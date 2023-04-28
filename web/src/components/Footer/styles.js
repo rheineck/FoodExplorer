@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.footer`
   grid-area: footer;
 
+  position: fixed;
   bottom: 0;
 
   height: 77px;

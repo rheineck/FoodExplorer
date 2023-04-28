@@ -2,9 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
+  display: grid;
+  grid-template-areas: 
+  'header'
+  'content'
+  'footer';
+
+
   margin: 0px auto;
 
   main {
+    grid-area: content;
     height: 100vh;
     margin: 56px 35px 122px;
   }
@@ -60,7 +68,9 @@ export const Container = styled.div`
   @media(min-width: 1366px) {
 
     main {
-      margin: 123px;
+      margin: 0 auto;
+      width: 60%;
+      margin-top: 35px;
     }
 
     .mobileOnly {
@@ -72,7 +82,7 @@ export const Container = styled.div`
     }
 
     .desktopOnly {
-      display: flex;
+      display: block;
     }
 
     table {
@@ -81,12 +91,27 @@ export const Container = styled.div`
       border: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
       font-family: 'Roboto';
       font-weight: 400;
+      text-align: justify;
+      font-size: 14px;
     }
 
     thead {
       font-weight: 700;
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
       height: 64px;
+    }
+
+    th {
+      width: 152px;
+      padding: 21px 24px;
+    }
+
+    th:nth-child(3) {
+      width: 677px;
+    }
+
+    td {
+      padding: 16px 24px;
     }
   }
 `

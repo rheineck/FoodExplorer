@@ -5,6 +5,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 
   height: 120px;
   padding: 56px 28px 24px;
@@ -44,7 +45,7 @@ export const Container = styled.header`
 
   @media(min-width: 1366px) { 
 
-    margin-left: 122px;
+    /* margin-left: 122px; */
     gap: 32px;
 
     input {
@@ -78,7 +79,7 @@ export const Container = styled.header`
   }
 
     @media(width: 1920px) {
-    padding: 0 27.7rem;
+    /* padding: 0 27.7rem; */
 
     input {
       /* width: 581px; */
