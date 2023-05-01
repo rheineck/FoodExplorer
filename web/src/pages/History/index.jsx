@@ -11,14 +11,14 @@ export function History() {
   return (
     <Container>
       <Header />
-      <Link to='/'>
-        <ButtonText
-          className='backbutton'
-          title="Voltar"
-          icon={CaretLeft}
-        />
-      </Link>
       <main>
+        <Link to='/'>
+          <ButtonText
+            className='backbutton'
+            title="Voltar"
+            icon={CaretLeft}
+          />
+        </Link>
         <h2>Pedidos</h2>
         <table className="desktopOnly">
           <thead>

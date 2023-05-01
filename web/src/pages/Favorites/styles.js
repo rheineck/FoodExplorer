@@ -9,6 +9,10 @@ export const Container = styled.div`
   ;
 
   height: 100vh;
+
+  .disabled {
+    display: none;
+  }
 `
 
 export const Content = styled.div`
@@ -44,8 +48,9 @@ export const Content = styled.div`
       height: 72px;
     }
 
-    > p {
+    > a {
       grid-area: title;
+      margin-left: 12px;
       font-family: 'Poppins'; 
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
       font-size: 20px;
@@ -54,6 +59,7 @@ export const Content = styled.div`
 
     > button {
       grid-area: remove;
+      margin-left: 12px;
       background: none;
       border: none;
       color: ${({ theme }) => theme.COLORS.TOMATO_400};
@@ -63,6 +69,12 @@ export const Content = styled.div`
 
   @media(min-width: 1366px) {
     width: 60%;
+    height: 80vh;
+    margin-top: 34px;
+
+    .disabled {
+      display: flex;
+    }
 
     .favorites {
       display: grid;
@@ -70,6 +82,10 @@ export const Content = styled.div`
         'card card card card'
         'card card card card'
       ;
+    }
+
+    .backbutton {
+      margin-bottom: 32px;
     }
 
     #favoriteDish {

@@ -12,55 +12,71 @@ export function Favorites () {
   return (
     <Container>
       <Header />
-      <Link to='/'>
-        <ButtonText
-          className='backbutton'
-          title="Voltar"
-          icon={CaretLeft}
-        />
-      </Link>
       <Content>
+        <Link to='/'>
+          <ButtonText
+            className='backbutton disabled'
+            title="Voltar"
+            icon={CaretLeft}
+          />
+        </Link>
         <main>
           <h2>Meus Favoritos</h2>
           <div className="favorites">
             <div id="favoriteDish">
               <img src={Ravanello} alt="Salada Ravanello" />
-              <p>Salada Ravanello</p>
+              <Link to='/dishes/:id'>
+                Salada Ravanello
+              </Link>
               <button>Remover</button>
             </div>
             <div id="favoriteDish">
               <img src={Ravanello} alt="Salada Ravanello" />
-              <p>Salada Ravanello</p>
+              <Link to='/dishes/:id'>
+                Salada Ravanello
+              </Link>
               <button>Remover</button>
             </div>
             <div id="favoriteDish">
               <img src={Ravanello} alt="Salada Ravanello" />
-              <p>Salada Ravanello</p>
+              <Link to='/dishes/:id'>
+                Salada Ravanello
+              </Link>
               <button>Remover</button>
             </div>
             <div id="favoriteDish">
               <img src={Ravanello} alt="Salada Ravanello" />
-              <p>Salada Ravanello</p>
+              <Link to='/dishes/:id'>
+                Salada Ravanello
+              </Link>
               <button>Remover</button>
             </div>
             <div id="favoriteDish">
               <img src={Ravanello} alt="Salada Ravanello" />
-              <p>Salada Ravanello</p>
+              <Link to='/dishes/:id'>
+                Salada Ravanello
+              </Link>
               <button>Remover</button>
             </div>
             <div id="favoriteDish">
               <img src={Ravanello} alt="Salada Ravanello" />
-              <p>Salada Ravanello</p>
+              <Link to='/dishes/:id'>
+                Salada Ravanello
+              </Link>
               <button>Remover</button>
             </div>
             <div id="favoriteDish">
               <img src={Ravanello} alt="Salada Ravanello" />
-              <p>Salada Ravanello</p>
+              <Link to='/dishes/:id'>
+                Salada Ravanello
+              </Link>
               <button>Remover</button>
             </div>
             <div id="favoriteDish">
               <img src={Ravanello} alt="Salada Ravanello" />
-              <p>Salada Ravanello</p>
+              <Link to='/dishes/:id'>
+                Salada Ravanello
+              </Link>
               <button>Remover</button>
             </div>
           </div>

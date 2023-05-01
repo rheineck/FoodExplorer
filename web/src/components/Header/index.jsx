@@ -59,10 +59,12 @@ export function Header() {
       <div className="popup mobileOnly">
         0
       </div>
-      <Button 
-        className='mobileOnly'
-        icon={Receipt}
-      />
+      <Link to='/order'>
+        <Button 
+          className='mobileOnly'
+          icon={Receipt}
+        />
+      </Link>
       <button
         className='desktopOnly'
       >

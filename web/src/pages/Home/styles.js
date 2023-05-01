@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
   
   display: grid;
   grid-template-areas:
-    'header'
-    'content'
-    'footer';
-`
+  'header'
+  'content'
+  'footer';
+  justify-items: center;
+  `
 
 export const Content = styled.div`
   grid-area: content;
@@ -19,7 +20,5 @@ export const Content = styled.div`
   }
   
   @media(min-width: 1366px) {
-    margin-left: 124px;
-    margin-right: 124px;
   }
 `

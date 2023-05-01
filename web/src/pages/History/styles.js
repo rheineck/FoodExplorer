@@ -82,23 +82,30 @@ export const Container = styled.div`
     }
 
     .desktopOnly {
-      display: block;
+      display: flex;
+    }
+
+    .backbutton {
+      margin-bottom: 32px;
     }
 
     table {
       border-radius: 8px 8px 0 0;
       color: ${({ theme }) => theme.COLORS.LIGHT_400};
       border: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
+      border-collapse: collapse;
       font-family: 'Roboto';
       font-weight: 400;
       text-align: justify;
       font-size: 14px;
+      flex-direction: column;
     }
 
     thead {
       font-weight: 700;
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
       height: 64px;
+      border-bottom: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
     }
 
     th {
@@ -112,6 +119,16 @@ export const Container = styled.div`
 
     td {
       padding: 16px 24px;
+      width: 152px;
+      border-right: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
+    }
+
+    td:nth-child(3) {
+      width: 677px;
+    }
+
+    td:last-child {
+      border-right: none;
     }
   }
 `
