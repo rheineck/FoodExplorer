@@ -23,7 +23,7 @@ export const Container = styled.div`
     font-weight: 500;
     margin-bottom: 18px;
   }
-
+  
   #orderTable {
     font-family: 'Roboto';
     margin-bottom: 18px;
@@ -36,31 +36,48 @@ export const Container = styled.div`
     grid-template-areas: 
     'id status timestamp'
     'order order order'
+    'select select select'
     ;
   }
-
+  
   #id {
     grid-area: id;
   }
-
+  
   #status {
     grid-area: status;
   }
-
+  
   #timestamp {
     grid-area: timestamp;
   }
-
+  
   #id, #status, #timestamp {
     height: 22px;
     margin-bottom: 16px;
+  }
+  
+  select {
+    grid-area: select;
+    height: 48px;
+    width: 315px;
+    padding: 16px;
+    margin-top: 16px;
+    border: none;
+    border-radius: 5px;
+    background: ${({ theme }) => theme.COLORS.DARK_900};
+    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    font-family: 'Roboto';
+    font-size: 14px;
+    line-height: 22.4px;
+
   }
 
   .order {
     grid-area: order;
     text-align: justify;
   }
-
+  
   .desktopOnly {
    display: none 
   }
@@ -87,6 +104,14 @@ export const Container = styled.div`
 
     .backbutton {
       margin-bottom: 32px;
+    }
+
+    select {
+      width: 100%;
+    }
+    
+    th:first-child, td:first-child {
+      width: 175px;
     }
 
     table {

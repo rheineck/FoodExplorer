@@ -8,6 +8,7 @@ import { ButtonText } from '../../components/ButtonText'
 import { Footer } from "../../components/Footer"
 
 export function History() {
+  const isAdmin = true
   return (
     <Container>
       <Header />
@@ -31,7 +32,13 @@ export function History() {
           </thead>
           <tbody>
             <tr>
-              <td>Pendente</td>
+              {isAdmin ? <td>
+                <select name="status">
+                  <option value="pendente">Pendente</option>
+                  <option value="preparo">Em Preparo</option>
+                  <option value="entregue">Entregue</option>
+                </select>
+              </td> : <td>Pendente</td>}
               <td>0000004</td>
               <td>1 x Salada Radish, 1 x Torrada de Parma</td>
               <td>20/05 às 18h00</td>
@@ -48,15 +55,20 @@ export function History() {
             <div id="orderId">
               00000004
           </div>
-            <div id="status">
+            {isAdmin ? <div id="status"></div> : <div id="status">
               Pendente
-            </div>
+            </div>}
             <div id="timestamp">
               20/05 às 18h00
             </div>
             <div id="order">
               1 x Salada Ravanello, 1 x Salada Parma
             </div>
+            {isAdmin ? <select name="status" id='select'>
+                  <option value="pendente">Pendente</option>
+                  <option value="preparo">Em Preparo</option>
+                  <option value="entregue">Entregue</option>
+                </select> : <></>}
         </div>
         <div id="orderTable" className="mobileOnly">
             <div id="orderId">

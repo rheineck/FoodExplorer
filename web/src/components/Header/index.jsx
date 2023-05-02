@@ -10,6 +10,7 @@ import { Button } from '../Button'
 
 
 export function Header() {
+  const isAdmin = true;
   return(
     <Container>
       <Link to='/menu'>
@@ -18,12 +19,7 @@ export function Header() {
           className='mobileOnly'
         />
       </Link>
-      <Brand 
-        className="disabled"
-      />
-      {/* <AdminBrand 
-        className="adminOnly"
-      /> */}
+      {isAdmin ? <AdminBrand /> : <Brand />}
       <div className="desktopOnly">
         <Input 
           icon={MagnifyingGlass}
@@ -37,34 +33,47 @@ export function Header() {
       >
         Meu Favorito
       </Link>
-      <Link 
-        to='/order_history'
-        className='desktopOnly'
-      >
-        Histórico de Pedidos
-      </Link>
-      <Link to='/order'>
+      {!isAdmin ? 
+        <Link 
+          to='/order_history'
+          className='desktopOnly'
+        >
+          Histórico de Pedidos
+        </Link> :
+        <Link 
+          to='/new'
+          className='desktopOnly'
+        >
+          Novo Prato
+        </Link>
+      }
+      {!isAdmin ? 
+        <Link to='/order'>
+          <Button
+            className='receiptButton desktopOnly'
+            title='Pedido'
+            icon={Receipt}
+          />
+        </Link> :
+        <Link to='/order_history'>
         <Button
           className='receiptButton desktopOnly'
           title='Pedido'
           icon={Receipt}
         />
-      </Link>
-      {/* <Link to='/new'>
-        <Button
-          className='receiptButton desktopOnly'
-          title='Novo Prato'
-        />
-      </Link> */}
-      <div className="popup mobileOnly">
-        0
-      </div>
-      <Link to='/order'>
-        <Button 
-          className='mobileOnly'
-          icon={Receipt}
-        />
-      </Link>
+        </Link>
+      }
+      {isAdmin ? <></> :
+        <div className="popup mobileOnly">
+          0
+        </div>}
+      {isAdmin ? <></> : 
+        <Link to='/order'>
+          <Button 
+            className='mobileOnly'
+            icon={Receipt}
+          />
+        </Link>}
       <button
         className='desktopOnly'
       >

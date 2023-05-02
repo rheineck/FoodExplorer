@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { CaretRight, Minus, Plus, HeartStraight } from '@phosphor-icons/react'
+import { CaretRight, Minus, Plus, HeartStraight, PencilSimple } from '@phosphor-icons/react'
 import Ravanello from '../../assets/images/Ravanello.png'
 
 import { Container } from './styles'
@@ -9,12 +9,23 @@ import { ButtonText } from '../ButtonText'
 import { Button } from '../Button'
 
 export function Card({ data, ...rest }) {
+  const isAdmin = false
   return(
     <Container {...rest}>
-      <ButtonText 
-        className='favorite'
-        icon={HeartStraight}
-      />
+      {isAdmin ?
+        <Link to='/edit/:id'>
+          <ButtonText 
+            className='favorite'
+            icon={PencilSimple}
+          />
+        </Link>
+        : 
+        <ButtonText 
+          className='favorite'
+          icon={HeartStraight}
+          onClick={() => alert('Adicionado aos Favoritos!')}
+        />
+      }
       <img src={Ravanello} alt="Salada Ravanello" />
       <div className="title">
         <Link to='/dishes/:id'>
@@ -28,6 +39,7 @@ export function Card({ data, ...rest }) {
         Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
       </div>
       <h1>R$ 49,97</h1>
+      {!isAdmin ? 
       <div className="desktopButtons">
         <div className="includeDishes">
           <ButtonText
@@ -42,7 +54,7 @@ export function Card({ data, ...rest }) {
         className='includeButton'
           title='Incluir'
         />
-      </div>
+      </div> : <></>}
     </Container>
   )
 }

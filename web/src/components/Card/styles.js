@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   padding: 0 24px 24px;
 
-  height: 318px;
+  height: 100%;
   width: 210px;
   border-radius: 8px;
 
@@ -46,9 +46,12 @@ export const Container = styled.div`
   .title {
     display: flex;
     align-items: center;
-    font-size: 1.4rem;
-    font-weight: 500;
     margin-bottom: 12px;
+    
+    button {
+      font-size: 14px;
+      font-weight: 500;
+    }
 
     svg {
       height: 14px;

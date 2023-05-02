@@ -5,7 +5,7 @@ export function AdminBrand() {
   return (
     <Container>
       <img src={logoImg} alt="Logo FoodExplorer" />
-      <div className="desktopOnly">
+      <div>
         food explorer
         <span>admin</span>
       </div>
