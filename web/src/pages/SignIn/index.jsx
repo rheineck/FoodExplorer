@@ -1,13 +1,24 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { Container, Form } from './styles'
 import LogoImg from '../../assets/Logo.svg'
 
+import { useAuth } from '../../hooks/auth'
+
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
-import { ButtonText } from '../../components/ButtonText'
-import { Brand } from '../../components/Brand'
-import { Link } from 'react-router-dom'
 
 export function SignIn() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const { signIn } = useAuth()
+
+  function handleSignIn() {
+    signIn({ email, password })
+  }
+
   return (
     <Container>
       <div className="brand">
@@ -20,14 +31,17 @@ export function SignIn() {
         <Input 
           placeholder="E-mail"
           type="text"
+          onChange={e => setEmail(e.target.value)}
         />
         <span>Senha</span>
         <Input 
           placeholder="Senha"
           type="password"
+          onChange={e => setPassword(e.target.value)}
         />
         <Button 
           title="Entrar"
+          onClick={handleSignIn}
         />
         <Link to="/register" >
           Criar uma Conta
