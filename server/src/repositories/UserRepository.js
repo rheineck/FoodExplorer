@@ -3,7 +3,7 @@ const knex = require('../database')
 class UserRepository {
   async findByEmail(email) {
     const user = await knex('users').select().where({email})
-
+    
     return user
   }
 

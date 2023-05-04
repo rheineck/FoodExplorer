@@ -6,7 +6,7 @@ class UserCreateService {
     this.userRepository = userRepository
   }
 
-  async execute({ name, email, password, isAdmin}) {
+  async execute({ name, email, password, isAdmin }) {
     const checkUserExists = await this.userRepository.findByEmail(email)
 
     if (checkUserExists) {
