@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/auth'
 
 import { Container } from './styles'
 import { List, Receipt, SignOut, MagnifyingGlass } from '@phosphor-icons/react'
@@ -10,7 +11,11 @@ import { Button } from '../Button'
 
 
 export function Header() {
-  const isAdmin = true;
+  const { signOut, user } = useAuth()
+  const isAdmin = user.isAdmin;
+
+  const navigate = useNavigate()
+
   return(
     <Container>
       <Link to='/menu'>
@@ -76,6 +81,7 @@ export function Header() {
         </Link>}
       <button
         className='desktopOnly'
+        onClick={signOut}
       >
         <SignOut size={32} />
       </button>
