@@ -7,14 +7,34 @@ const DishesCreateService = require('../services/DishesCreateService')
 class DishesController {
   async create(req, res) {
     const { name, category, description, price, ingredients } = req.body
+    
+    const dishes_id = await knex('dishes').insert({
+      name,
+      category,
+      description,
+      price
+    })
 
-    const dishesRepository = new DishesRepository()
-    const ingredientsRepository = new IngredientsRepository()
-    const dishesCreateService = new DishesCreateService(dishesRepository, ingredientsRepository)
+    const ingredientsInsert = ingredients.map(name => {
+      return {
+        name,
+        dishes_id
+      }
+    })
 
-    await dishesCreateService.execute({ name, category, description, price, ingredients })
+    await knex('ingredients').insert(ingredientsInsert)
 
     return res.status(201).json()
+
+    // const { name, category, description, price, ingredients } = req.body
+
+    // const dishesRepository = new DishesRepository()
+    // const ingredientsRepository = new IngredientsRepository()
+    // const dishesCreateService = new DishesCreateService(dishesRepository, ingredientsRepository)
+
+    // await dishesCreateService.execute({ name, category, description, price, ingredients })
+
+    // return res.status(201).json()
 
   }
 
@@ -77,7 +97,6 @@ class DishesController {
 
   async index(req, res) {
     const { name, ingredient } = req.query
-
     
     let ingredients
     let dishes
