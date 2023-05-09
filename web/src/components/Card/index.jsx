@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useAuth } from '../../hooks/auth'
 import { api } from '../../services/api'
@@ -15,7 +15,13 @@ export function Card({ data }) {
   const [quantity, setQuantity] = useState(0)
   const [favorite, setFavorite] = useState(false)
 
+  const navigate = useNavigate()
+
   // const dishPicture = `${api.defaults.baseURL}/dishes/img/${data.photo}`
+
+  function handleDetails(id) {
+    navigate(`/dishes/${id}`)
+  }
 
   function handleFavorites() {
     if(!favorite) {
@@ -47,7 +53,7 @@ export function Card({ data }) {
         : 
         <ButtonText 
           className='favorite'
-          icon={favorite ? <HeartStraight /> : <HeartStraight weight='fill'/>}
+          icon={HeartStraight}
           onClick={handleFavorites}
         />
       }
@@ -55,11 +61,10 @@ export function Card({ data }) {
       <>
         <img src={Ravanello} alt="Salada Ravanello" />
         <div className="title">
-          <Link to={`/dishes/${data.id}`}>
-            <ButtonText
-              title={data.name}
-            />
-          </Link>
+          <ButtonText
+            title={data.name}
+            onClick={() => handleDetails(data.id)}
+          />
           <CaretRight size={14}/>
         </div>
         <div className="desktopOnly">

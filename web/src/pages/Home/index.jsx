@@ -25,7 +25,7 @@ export function Home () {
     async function fetchDishes() {
       const res = await api.get(`/dishes?name=${search}&ingredient=${search}`)
       setDishes(res.data)
-      console.log(Array.isArray(res))
+      // console.log(Array.isArray(res))
     }
 
     fetchDishes()
@@ -42,7 +42,7 @@ export function Home () {
             <Section
               title="Refeições"
             >
-              {/* { 
+              { 
                 dishes.filter(dishes => dishes.category == "refeicoes").map(dish=> (
                   <Card 
                     key={String(dish.id)} 
@@ -50,7 +50,7 @@ export function Home () {
                     onClick={() => handleDetails(dish.id)}
                   />
                 ))
-              } */}
+              }
             </Section>
             <Section
               title="Sobremesas"
