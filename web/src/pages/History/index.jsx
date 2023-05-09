@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { CaretLeft } from '@phosphor-icons/react';
 
+import { useAuth } from '../../hooks/auth'
 import { Container } from "./styles";
 
 import { Header } from "../../components/Header";
@@ -8,7 +9,8 @@ import { ButtonText } from '../../components/ButtonText'
 import { Footer } from "../../components/Footer"
 
 export function History() {
-  const isAdmin = true
+  const { user } = useAuth()
+  const isAdmin = user.isAdmin
   return (
     <Container>
       <Header />

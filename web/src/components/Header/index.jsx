@@ -10,7 +10,7 @@ import { Input } from '../Input'
 import { Button } from '../Button'
 
 
-export function Header() {
+export function Header({ setSearch }) {
   const { signOut, user } = useAuth()
   const isAdmin = user.isAdmin;
 
@@ -30,14 +30,16 @@ export function Header() {
           icon={MagnifyingGlass}
           placeholder='Pesquisar'
           type='text'
+          onChange={e => setSearch(e.target.value)}
         />
       </div>
-      <Link 
-        to='/favorites'
-        className='desktopOnly'
-      >
-        Meu Favorito
-      </Link>
+      {!isAdmin ? 
+        <Link 
+          to='/favorites'
+          className='desktopOnly'
+        > 
+          Meu Favorito
+        </Link> : <></>}
       {!isAdmin ? 
         <Link 
           to='/order_history'

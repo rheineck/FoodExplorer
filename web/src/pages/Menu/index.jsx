@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/auth'
 
 import { X, MagnifyingGlass } from '@phosphor-icons/react'
 
@@ -11,7 +11,8 @@ import { Input } from '../../components/Input'
 import { Footer } from '../../components/Footer'
 
 export function Menu() {
-
+  const { user, signOut } = useAuth()
+  const isAdmin = user.isAdmin
   const navigate = useNavigate()
 
   function handleBack() {
@@ -33,20 +34,23 @@ export function Menu() {
               placeholder='Busque por prato ou ingredientes'
               type='text'
           />
-          <Link to='/edit/:id'>
-            <ButtonText 
-              id="button"
-              className="adminOnly disabled"
-              title="Novo Prato"
-            />
-          </Link>
-          <Link to='/favorites'>
-            <ButtonText 
-              id="button"
-              title="Favoritos"
-            />
-          </Link>
-          <Link to='/order'>
+          {isAdmin ? 
+            <Link to='/edit/:id'>
+              <ButtonText 
+                id="button"
+                className="adminOnly"
+                title="Novo Prato"
+              />
+            </Link> : 
+            <Link to='/favorites'>
+              <ButtonText 
+                id="button"
+                title="Favoritos"
+              />
+            </Link>
+          }
+          
+          <Link to='/order_history'>
             <ButtonText 
               id="button"
               title="Histórico"
@@ -61,6 +65,7 @@ export function Menu() {
           <ButtonText
             id="button" 
             title="Sair"
+            onClick={signOut}
           />
         </div>
       </main>

@@ -1,8 +1,12 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
+import { api } from '../../services/api'
 import { CaretLeft, Minus, Plus, Receipt } from '@phosphor-icons/react'
 import Ravanello from '../../assets/images/Ravanello.png'
 
+import { useAuth } from '../../hooks/auth'
 import { Container } from './styles'
 
 import { Header } from '../../components/Header'
@@ -12,6 +16,21 @@ import { Tags } from '../../components/Tags'
 import { Footer } from '../../components/Footer'
 
 export function DishesInfo () {
+  const [dishes, setDishes] = useState([])
+  const params = useParams()
+
+  const { user } = useAuth()
+  const isAdmin = user.isAdmin
+
+  useEffect(() => {
+    async function fetchDetails () {
+      const res = await api.get(`/dishes/${params.id}`)
+      setDishes(res.data)
+    }
+
+    fetchDetails()
+  },[])
+
   return (
     <Container>
       <Header />
@@ -22,58 +41,50 @@ export function DishesInfo () {
           icon={CaretLeft}
         />
       </Link>
-      <main>
-        <img 
-          src={Ravanello} 
-          className='dishImg'
-        />
-        <div className="title">
-          <h1>Salada Ravanello</h1>
-          <span>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</span>
-          <div className="ingredients">
-            <Tags 
-              title='alface'
-            />
-            <Tags 
-              title='cebola'
-            />
-            <Tags 
-              title='pão naan'
-            />
-            <Tags 
-              title='pepino'
-            />
-            <Tags 
-              title='rabanete'
-            />
-            <Tags 
-              title='tomate'
-            />
-          </div>
-          <div className="buttons disabled">
-            <div className="includeDishes">
-              <ButtonText
-                icon={Minus}
-              />
-              01
-              <ButtonText 
-                icon={Plus}
-              />
+      { dishes &&
+        <main>
+          <img 
+            src={Ravanello} 
+            className='dishImg'
+          />
+          <div className="title">
+            <h1>{dishes.name}</h1>
+            <span>{dishes.description}</span>
+            <div className="ingredients">
+              {
+                dishes.ingredients && dishes.ingredients.map(ingredient => (
+                <Tags
+                  key={ingredient.id}
+                  title={ingredient.name}
+                />))
+              }
             </div>
-            <Button 
-              className='includeButton'
-              title={`Pedir R$ 25.00`}
-              icon={Receipt}
-            />
+            {!isAdmin ? 
+            <div className="buttons">
+              <div className="includeDishes">
+                <ButtonText
+                  icon={Minus}
+                />
+                01
+                <ButtonText 
+                  icon={Plus}
+                />
+              </div>
+              <Button 
+                className='includeButton'
+                title={`Pedir R$ ${dishes.price}`}
+                icon={Receipt}
+              />
+            </div> :
+            <Link to='/edit/:id'>
+              <Button 
+                className="adminOnly editDishes"
+                title="Editar Prato"
+              />
+            </Link>}
           </div>
-          <Link to='/edit/:id'>
-            <Button 
-              className="adminOnly editDishes"
-              title="Editar Prato"
-            />
-          </Link>
-        </div>
-      </main>
+        </main>
+      }
       <Footer />
     </Container>
   )
