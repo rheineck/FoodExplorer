@@ -99,7 +99,7 @@ class DishesController {
     const { name, ingredient } = req.query
     
     let ingredients
-    let dishes
+    let dishes    
     
     if(ingredient) {
       
