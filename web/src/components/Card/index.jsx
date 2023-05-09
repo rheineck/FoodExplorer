@@ -23,6 +23,10 @@ export function Card({ data }) {
     navigate(`/dishes/${id}`)
   }
 
+  function handleEditDish(id) {
+    navigate(`/edit/${id}`)
+  }
+
   function handleFavorites() {
     if(!favorite) {
       setFavorite(true)
@@ -44,12 +48,11 @@ export function Card({ data }) {
   return(
     <Container>
       {user.isAdmin ?
-        <Link to={`/edit/${data.id}`}>
-          <ButtonText 
-            className='favorite'
-            icon={PencilSimple}
-          />
-        </Link>
+        <ButtonText 
+          className='favorite'
+          icon={PencilSimple}
+          onClick={handleEditDish}
+        />
         : 
         <ButtonText 
           className='favorite'
