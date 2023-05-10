@@ -3,6 +3,7 @@ const IngredientsRepository = require('../repositories/IngredientsRepository')
 const DishesRepository = require('../repositories/DishesRepository')
 const AppError = require('../utils/AppError')
 const DishesCreateService = require('../services/DishesCreateService')
+const { response } = require('express')
 
 class DishesController {
   async create(req, res) {
@@ -96,27 +97,62 @@ class DishesController {
   }
 
   async index(req, res) {
-    const { name, ingredient } = req.query
-    
-    let ingredients
-    let dishes    
-    
-    if(ingredient) {
-      
-      ingredients = await knex('ingredients').select([
-        'id',
-        'name',
-        'dishes_id'
-      ]).whereLike('name', ingredient).orderBy('name')
-      
+    const { name, ingredients } = req.query
+
+    let dishes
+    if(ingredients) {
+      const filterIngredients = ingredients.split(',').map(ingredient => ingredient.trim())
+
+      dishes = await knex('ingredients')
+        .select([
+          'ingredients.id', 
+          'ingredients.name', 
+          'ingredients.dishes_id'
+        ])
+        .whereLike('dishes.name', `%${name}%`)
+        .whereIn('name', filterIngredients)
+        .groupBy('ingredients.id')
+        .orderBy('ingredients.name')
+
     } else {
-      dishes = await knex('dishes').whereLike('name', name).orderBy('name')
+      dishes = await knex('dishes')
+        .whereLike('name', `%${name}%`)
+        .orderBy('name')
     }
-   
-    return res.json({
-      dishes,
-      ingredients
+
+    console.log(dishes)
+
+    const dishIngredient = await knex('ingredients').where(dishes.id)
+    const dishWithIngredient = dishes.map(dish => {
+      const dishIngredients = dishIngredient.filter(ingredient => ingredient.dishes_id === dish.id)
+
+      return {
+        ...dishes,
+        ingredients: dishIngredients
+      }
     })
+
+    return res.json(dishWithIngredient)
+    
+    // let ingredients
+    // let dishes    
+    
+    // if(ingredient) {
+      
+    //   ingredients = await knex('ingredients').select([
+    //     'id',
+    //     'name',
+    //     'dishes_id'
+    //   ]).whereLike('name', ingredient).orderBy('name')
+      
+    // } else {
+    //   dishes = await knex('dishes').whereLike('name', name).orderBy('name')
+    // }
+   
+    // return res.json({
+    //   dishes,
+    //   ingredients
+    // })
   }
 }
 

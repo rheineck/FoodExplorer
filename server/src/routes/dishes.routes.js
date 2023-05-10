@@ -12,11 +12,13 @@ const ensureAuthenticated = require('../middleware/ensureAuthenticated')
 const dishesController = new DishesController()
 const dishesImgController = new DishesImgController()
 
-dishesRoutes.post('/', ensureAuthenticated, dishesController.create)
+dishesRoutes.use(ensureAuthenticated)
+
+dishesRoutes.post('/', dishesController.create)
 dishesRoutes.put('/:id', dishesController.update)
-dishesRoutes.get('/:id', ensureAuthenticated, dishesController.show)
+dishesRoutes.get('/:id', dishesController.show)
 dishesRoutes.delete('/:id', dishesController.delete)
-dishesRoutes.get('/', ensureAuthenticated, dishesController.index)
+dishesRoutes.get('/', dishesController.index)
 dishesRoutes.patch('/img/:dishes_id', upload.single('img'), dishesImgController.update)
 
 module.exports = dishesRoutes
