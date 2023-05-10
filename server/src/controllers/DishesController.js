@@ -3,7 +3,6 @@ const IngredientsRepository = require('../repositories/IngredientsRepository')
 const DishesRepository = require('../repositories/DishesRepository')
 const AppError = require('../utils/AppError')
 const DishesCreateService = require('../services/DishesCreateService')
-const { response } = require('express')
 
 class DishesController {
   async create(req, res) {
@@ -105,14 +104,18 @@ class DishesController {
 
       dishes = await knex('ingredients')
         .select([
-          'ingredients.id', 
-          'ingredients.name', 
-          'ingredients.dishes_id'
+          'dishes.id', 
+          'dishes.name',
+          'dishes.description',
+          'dishes.category',
+          'dishes.price',
+          'dishes.photo'
         ])
         .whereLike('dishes.name', `%${name}%`)
         .whereIn('name', filterIngredients)
-        .groupBy('ingredients.id')
-        .orderBy('ingredients.name')
+        .innerJoin('dishes', 'dishes.id', 'ingredients.dishes_id')
+        .groupBy('dishes.id')
+        .orderBy('dishes.name')
 
     } else {
       dishes = await knex('dishes')
@@ -121,10 +124,9 @@ class DishesController {
     }
 
     console.log(dishes)
-
-    const dishIngredient = await knex('ingredients').where(dishes.id)
+    const dishesIngredients = await knex('ingredients')
     const dishWithIngredient = dishes.map(dish => {
-      const dishIngredients = dishIngredient.filter(ingredient => ingredient.dishes_id === dish.id)
+      const dishIngredients = dishesIngredients.filter(ingredient => ingredient.dishes_id === dish.id)
 
       return {
         ...dishes,
@@ -132,7 +134,7 @@ class DishesController {
       }
     })
 
-    return res.json(dishWithIngredient)
+    return res.status(200).json(dishWithIngredient)
     
     // let ingredients
     // let dishes    
