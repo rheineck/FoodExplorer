@@ -23,8 +23,8 @@ export function Home () {
 
   useEffect(() => {
     async function fetchDishes() {
-      const res = await api.get(`/dishes?name=${search}&ingredient=${search}`)
-      setDishes(res.data)
+      const response = await api.get(`/dishes?name=${search}&ingredient=${search}`)
+      setDishes(response.data)
     }
 
     fetchDishes()
