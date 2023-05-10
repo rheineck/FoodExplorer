@@ -23,63 +23,63 @@ export function Home () {
 
   useEffect(() => {
     async function fetchDishes() {
-      const response = await api.get(`/dishes?name=${search}&ingredient=${search}`)
-      setDishes(response.data)
+      const res = await api.get(`/dishes?name=${search}&ingredients=${search}`)
+      setDishes(res.data)
     }
 
     fetchDishes()
   },[search])
-
+  
   return(
     <Container>
       <Header setSearch={setSearch}/>
-      {
-        dishes &&
-        <main>
-          <Content>
-            <Info />
-            <Section
-              title="Refeições"
-            >
-              { 
-                dishes.filter(dishes => dishes.category == "refeicoes").map(dish=> (
-                  <Card 
-                    key={String(dish.id)} 
-                    data={dish}
-                    onClick={() => handleDetails(dish.id)}
-                  />
-                ))
-              }
-            </Section>
-            <Section
-              title="Sobremesas"
-            >
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-            </Section>
-            <Section
-              title="Bebidas"
-            >
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-            </Section>
-          </Content>
-        </main>
-      }
+      <main>
+        <Content>
+          <Info />
+          <Section
+            title="Refeições"
+          >
+          {
+            dishes &&
+            dishes.filter(dishes => dishes.category == "refeicoes").map(dish=> (
+              <Card 
+                key={String(dish.id)} 
+                data={dish}
+                onClick={() => handleDetails(dish.id)}
+              />
+            ))
+          }
+          </Section>
+          <Section
+            title="Sobremesas"
+          >
+            {
+              dishes &&
+              dishes.filter(dishes => dishes.category == "sobremesa").map(dish => (
+                <Card 
+                  key={String(dish.id)}
+                  data={dish}
+                  onClick={() => handleDetails(dish.id)}
+                />
+              ))
+            }
+          </Section>
+          <Section
+            title="Bebidas"
+          >
+            {
+              dishes &&
+              dishes.filter(dishes => dishes.category == "bebida").map(dish => (
+                <Card 
+                  key={String(dish.id)}
+                  data={dish}
+                  onClick={() => handleDetails(dish.id)}
+                />
+              ))
+            }
+          </Section>
+        </Content>
+      </main>
       <Footer />
     </Container>
   )
