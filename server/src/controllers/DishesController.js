@@ -26,16 +26,6 @@ class DishesController {
 
     return res.status(201).json()
 
-    // const { name, category, description, price, ingredients } = req.body
-
-    // const dishesRepository = new DishesRepository()
-    // const ingredientsRepository = new IngredientsRepository()
-    // const dishesCreateService = new DishesCreateService(dishesRepository, ingredientsRepository)
-
-    // await dishesCreateService.execute({ name, category, description, price, ingredients })
-
-    // return res.status(201).json()
-
   }
 
   async update(req, res) {
@@ -114,13 +104,11 @@ class DishesController {
         .whereLike('dishes.name', `%${name}%`)
         .whereIn('name', filterIngredients)
         .innerJoin('dishes', 'dishes.id', 'ingredients.dishes_id')
-        .groupBy('dishes.id')
         .orderBy('dishes.name')
 
     } else {
       dishes = await knex('dishes')
         .whereLike('name', `%${name}%`)
-        .orderBy('name')
     }
     
     const dishesIngredients = await knex('ingredients')
@@ -135,25 +123,6 @@ class DishesController {
 
     return res.status(200).json(dishWithIngredient)
     
-    // let ingredients
-    // let dishes    
-    
-    // if(ingredient) {
-      
-    //   ingredients = await knex('ingredients').select([
-    //     'id',
-    //     'name',
-    //     'dishes_id'
-    //   ]).whereLike('name', ingredient).orderBy('name')
-      
-    // } else {
-    //   dishes = await knex('dishes').whereLike('name', name).orderBy('name')
-    // }
-   
-    // return res.json({
-    //   dishes,
-    //   ingredients
-    // })
   }
 }
 
