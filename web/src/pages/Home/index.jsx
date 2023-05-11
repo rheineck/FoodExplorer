@@ -23,7 +23,7 @@ export function Home () {
 
   useEffect(() => {
     async function fetchDishes() {
-      const res = await api.get(`/dishes?name=${search}&ingredients=${search}`)
+      const res = await api.get(`/dishes?name=${search}`)
       setDishes(res.data)
     }
 
@@ -40,7 +40,6 @@ export function Home () {
             title="Refeições"
           >
           {
-            dishes &&
             dishes.filter(dishes => dishes.category == "refeicoes").map(dish=> (
               <Card 
                 key={String(dish.id)} 
@@ -54,7 +53,6 @@ export function Home () {
             title="Sobremesas"
           >
             {
-              dishes &&
               dishes.filter(dishes => dishes.category == "sobremesa").map(dish => (
                 <Card 
                   key={String(dish.id)}
@@ -68,7 +66,6 @@ export function Home () {
             title="Bebidas"
           >
             {
-              dishes &&
               dishes.filter(dishes => dishes.category == "bebida").map(dish => (
                 <Card 
                   key={String(dish.id)}
