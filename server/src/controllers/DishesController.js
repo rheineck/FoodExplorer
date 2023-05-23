@@ -89,6 +89,7 @@ class DishesController {
     const { name, ingredients } = req.query
 
     let dishes
+    
     if(ingredients) {
       const filterIngredients = ingredients.split(',').map(ingredient => ingredient.trim())
 
@@ -120,7 +121,7 @@ class DishesController {
         ingredients: dishIngredients
       }
     })
-
+    
     return res.status(200).json(dishWithIngredient)
     
   }
