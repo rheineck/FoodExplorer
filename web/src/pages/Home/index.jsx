@@ -23,12 +23,13 @@ export function Home () {
 
   useEffect(() => {
     async function fetchDishes() {
-      const res = await api.get(`/dishes?name=${search}`)
+      const res = await api.get(`/dishes?name=${search}&ingredients=${search}`)
       setDishes(res.data)
     }
 
     fetchDishes()
   },[search])
+  console.log(dishes)
   
   return(
     <Container>
@@ -40,7 +41,7 @@ export function Home () {
             title="Refeições"
           >
           {
-            dishes.filter(dishes => dishes.category == "refeicoes").map(dish=> (
+            dishes.filter(dishes => dishes.category == "refeicoes").map(dish => (
               <Card 
                 key={String(dish.id)} 
                 data={dish}
