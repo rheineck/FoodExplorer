@@ -8,6 +8,7 @@ export const Container = styled.header`
   margin: 0 auto;
 
   width: 100vw;
+  padding: 0 123px;
 
   height: 120px;
   padding: 56px 28px 24px;
@@ -78,6 +79,10 @@ export const Container = styled.header`
       background: ${({ theme }) => theme.COLORS.TOMATO_100};
       width: 216px;
     }
+
+    .signOut:hover {
+      background: none;
+    }
   }
 
     @media(width: 1920px) {
@@ -88,3 +93,36 @@ export const Container = styled.header`
     }
   }
 `
+
+export const Search = styled.div`
+  min-width: 581px;
+  display: flex;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 5px;
+  
+  background-color: ${({ theme }) => theme.COLORS.BG_SEARCH};
+  > svg {
+    height: 19.5px;
+    width: 19.5px;
+    color: ${({ theme }) => theme.COLORS.GRAY_200};
+  }
+  > input {
+    width: 100%;
+    background: none;
+    border: none;
+    color: ${({ theme }) => theme.COLORS.GRAY_200}
+  }
+  > input::placeholder {
+    color: ${({ theme }) => theme.COLORS.GRAY_300}
+  }
+
+  @media(max-width: 1279px) {
+    > svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    min-width: 130px;
+  }
+`;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { api } from '../../services/api'
 import { CaretLeft, Minus, Plus, Receipt } from '@phosphor-icons/react'
@@ -19,8 +19,16 @@ export function DishesInfo () {
   const [dishes, setDishes] = useState([])
   const params = useParams()
 
+  const navigate = useNavigate()
+
   const { user } = useAuth()
   const isAdmin = user.isAdmin
+
+  const dishPicture = `${api.defaults.baseURL}/files/${dishes.picture}`
+
+  function handleEditDish() {
+    navigate(`/edit/${params.id}`)
+  }
 
   useEffect(() => {
     async function fetchDetails () {
@@ -44,7 +52,7 @@ export function DishesInfo () {
       { dishes &&
         <main>
           <img 
-            src={Ravanello} 
+            src={dishPicture} 
             className='dishImg'
           />
           <div className="title">
@@ -71,17 +79,18 @@ export function DishesInfo () {
                 />
               </div>
               <Button 
-                className='includeButton'
-                title={`Pedir R$ ${dishes.price}`}
-                icon={Receipt}
-              />
+                isRed
+                onClick={handleEditDish}
+              >
+                <span>{`Pedir R$ ${dishes.price}`}</span>
+              </Button>
             </div> :
-            <Link to='/edit/:id'>
-              <Button 
-                className="adminOnly editDishes"
-                title="Editar Prato"
-              />
-            </Link>}
+            <Button 
+              isRed
+              onClick={handleEditDish}
+            >
+              <span>Editar Prato</span>
+            </Button>}
           </div>
         </main>
       }

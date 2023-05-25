@@ -1,13 +1,15 @@
-const { Router } = require('express')
+const { Router } = require("express");
 
-const ingredientsRoutes = Router()
 
-const IngredientsController = require('../controllers/IngredientsController')
-const ensureAdmin = require('../middleware/ensureAdmin')
+const IngredientsController = require("../controllers/IngredientsController");
+const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
 
-const ingredientsController = new IngredientsController()
+const ingredientsRoutes = Router();
 
-ingredientsRoutes.get('/', ingredientsController.index)
-ingredientsRoutes.delete('/:id', ingredientsController.delete)
+const ingredientsController = new IngredientsController();
 
-module.exports = ingredientsRoutes
+ingredientsRoutes.use(ensureAuthenticated);
+
+ingredientsRoutes.get("/", ingredientsController.index);
+
+module.exports = ingredientsRoutes;

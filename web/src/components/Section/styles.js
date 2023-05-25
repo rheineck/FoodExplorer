@@ -66,18 +66,20 @@ export const Slider = styled.div`
 
     .buttonLeft, .buttonRight {
       position: absolute;
-      width: 277px;
+      width: 60px;
       height: 462px;
       z-index: 99;  
     }
 
     .buttonLeft {
-      /* left: 122px; */
+      position: absolute;
+      left: 0;
       background: linear-gradient(270deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
     }
     
     .buttonRight {
-      right: 122px;
+      position: absolute;
+      right: 0;
       background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
     }
   }
@@ -87,11 +89,11 @@ export const Slider = styled.div`
     width: 1200px;
 
     .buttonLeft {
-      /* left: 277px; */
+      left: 320px;
     }
 
     .buttonRight {
-      right: 277px;
+      right: 320px;
     }
   }
 

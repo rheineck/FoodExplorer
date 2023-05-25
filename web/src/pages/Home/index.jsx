@@ -29,11 +29,10 @@ export function Home () {
 
     fetchDishes()
   },[search])
-  console.log(dishes)
   
   return(
     <Container>
-      <Header setSearch={setSearch}/>
+      <Header search={setSearch}/>
       <main>
         <Content>
           <Info />
@@ -41,7 +40,7 @@ export function Home () {
             title="Refeições"
           >
           {
-            dishes.filter(dishes => dishes.category == "refeicoes").map(dish => (
+            dishes.filter(dish => dish.category == "main_course").map(dish => (
               <Card 
                 key={String(dish.id)} 
                 data={dish}
@@ -54,9 +53,9 @@ export function Home () {
             title="Sobremesas"
           >
             {
-              dishes.filter(dishes => dishes.category == "sobremesa").map(dish => (
+              dishes.filter(dish => dish.category == "dessert").map((dish, index) => (
                 <Card 
-                  key={String(dish.id)}
+                  key={index}
                   data={dish}
                   onClick={() => handleDetails(dish.id)}
                 />
@@ -67,9 +66,9 @@ export function Home () {
             title="Bebidas"
           >
             {
-              dishes.filter(dishes => dishes.category == "bebida").map(dish => (
+              dishes.filter(dish => dish.category == "drink").map((dish, index) => (
                 <Card 
-                  key={String(dish.id)}
+                  key={index}
                   data={dish}
                   onClick={() => handleDetails(dish.id)}
                 />

@@ -3,28 +3,37 @@ import styled from "styled-components"
 export const Container = styled.div`
     display: flex;
     align-items: center;
+    margin: 8px;
+    padding: 8px 16px;
+    gap: 8px;
+    height: 32px;
+
     background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.LIGHT_600};
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     border: ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : "none"};
-    margin-bottom: 8px;
-    border-radius: 10px;
-    padding-right: 16px;
+    border-radius: 8px;
 
-    > button {
+    button {
         border: none;
         background: none;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
     }
    
-    > input {
-        height: 32px;
+    input {
         width: 100%;
-        padding: 12px;
-        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        color: ${({ isNew, theme }) => isNew ? theme.COLORS.LIGHT_500 : theme.COLORS.LIGHT_100};
         background: transparent;
         border: none;
-        &::placeholder {
-            color: ${({ theme }) => theme.COLORS.LIGHT_500};
-        }
+        
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
     }
 
     svg {

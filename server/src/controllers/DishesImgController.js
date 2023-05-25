@@ -1,26 +1,31 @@
-const knex = require('../database')
-const AppError = require('../utils/AppError')
-const DiskStorage = require('../providers/DiskStorage')
+const knex = require("../database/knex");
+const AppError = require("../utils/AppError");
+const DiskStorage = require("../providers/DiskStorage");
 
-class DishesImgController {
-  async update(req, res) {
-    const { dishes_id } = req.params
-    const dishImg = req.file.filename
-    const diskStorage = new DiskStorage()
+class DishesPictureController {
+  async update(request, response) {
+    const { id } = request.params;
 
-    const dishes = await knex('dishes').where({ id: dishes_id }).first()
+    const pictureFilename = request.file.filename;
+    const diskStorage = new DiskStorage();
 
-    if(dishes.photo) {
-      await diskStorage.deleteFile(dishes.photo)
+    const dish = await knex("dishes").where({ id }).first();
+
+    if(!dish) {
+      throw new AppError("O prato que você deseja editar não existe.", 401);
     }
 
-    const filename = await diskStorage.saveFile(dishImg)
-    dishes.photo = filename
+    if(dish.picture) {
+      await diskStorage.deleteFile(dish.picture);
+    }
 
-    await knex('dishes').update(dishes).where({ id: dishes_id })
+    const filename = await diskStorage.saveFile(pictureFilename);
+    dish.picture = filename;
 
-    return res.json(dishes)
+    await knex("dishes").update(dish).where({ id });
+
+    return response.json(dish);
   }
 }
 
-module.exports = DishesImgController
+module.exports = DishesPictureController;

@@ -58,8 +58,78 @@ export const Form = styled.form`
     font-weight: 400;
   }
 
+  select {
+    width: 100%;
+    height: 48px; 
+    background: ${({ theme }) => theme.COLORS.DARK_900};
+    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-size: 16px;
+    padding: 13px 16px;
+  }
+
+  #picture-input {
+    padding: 0;
+    margin: 0;
+    
+    > label {
+      height: 55px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      background: none;
+     
+      background-color: ${({ theme }) => theme.COLORS.DARK_900};
+      border-radius: 5px;
+      padding: 12px 32px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+
+        color: ${({ theme }) => theme.COLORS.WHITE};
+
+        margin-right: 8px;
+      }
+
+      span {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+
+        white-space: nowrap;
+
+        color: ${({ theme }) => theme.COLORS.WHITE};
+      }
+
+      input {
+        display: none;
+      }
+    }
+  }
+
   textarea {
     font-size: 16px;
+    width: 100%;
+    height: 150px;
+    background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    border: none;
+    resize: none;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    padding: 16px;
+    &::placeholder {
+        color: ${({ theme }) => theme.COLORS.LIGHT_500};
+    }
   }
 
   .buttons {
@@ -102,7 +172,6 @@ export const Form = styled.form`
 
     .ingredients {
       width: 837px;
-      height: 48px;
     }
 
     .dishPrice {

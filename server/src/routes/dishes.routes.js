@@ -1,24 +1,25 @@
-const { Router } = require('express')
-const multer = require('multer')
-const uploadConfig = require('../configs/upload')
+const { Router } = require("express");
 
-const dishesRoutes = Router()
-const upload = multer(uploadConfig.MULTER)
+const multer = require('multer');
+const uploadConfig = require('../configs/upload');
+const upload = multer(uploadConfig.MULTER);
 
-const DishesController = require('../controllers/DishesController')
-const DishesImgController = require('../controllers/DishesImgController')
-const ensureAuthenticated = require('../middleware/ensureAuthenticated')
+const DishesController = require("../controllers/DishesController");
+const DishesImgController = require("../controllers/DishesImgController");
+const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
 
-const dishesController = new DishesController()
-const dishesImgController = new DishesImgController()
+const dishesRoutes = Router();
 
-dishesRoutes.use(ensureAuthenticated)
+const dishesController = new DishesController();
+const dishesImgController = new DishesImgController();
 
-dishesRoutes.post('/', dishesController.create)
-dishesRoutes.put('/:id', dishesController.update)
-dishesRoutes.get('/:id', dishesController.show)
-dishesRoutes.delete('/:id', dishesController.delete)
-dishesRoutes.get('/', dishesController.index)
-dishesRoutes.patch('/img/:dishes_id', upload.single('img'), dishesImgController.update)
+dishesRoutes.use(ensureAuthenticated);
 
-module.exports = dishesRoutes
+dishesRoutes.post("/", upload.single("picture"), dishesController.create);
+dishesRoutes.put("/:id", upload.single("picture"), dishesController.update);
+dishesRoutes.patch("/picture/:id", upload.single("picture"), dishesImgController.update);
+dishesRoutes.delete("/:id", dishesController.delete);
+dishesRoutes.get("/:id", dishesController.show);
+dishesRoutes.get("/", dishesController.index);
+
+module.exports = dishesRoutes;

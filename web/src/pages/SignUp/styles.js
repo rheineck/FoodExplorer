@@ -56,7 +56,7 @@ export const Form = styled.form`
     margin-bottom: 32px;
   }
 
-  span {
+  > span {
     font-family: 'Roboto';
     font-weight: 400;
     font-size: 1.6rem;

@@ -5,10 +5,6 @@ import { DishesInfo } from '../pages/DishesInfo'
 import { Menu } from '../pages/Menu'
 import { EditDishes } from '../pages/EditDishes'
 import { CreateDishes } from '../pages/CreateDishes'
-import { History } from '../pages/History'
-import { Favorites } from '../pages/Favorites'
-import { Order } from '../pages/Order'
-import { Payment } from '../pages/Payment'
 
 export function AppRoutes() {
     return (
@@ -18,10 +14,6 @@ export function AppRoutes() {
             <Route path='/menu' element={<Menu />} />
             <Route path='/edit/:id' element={<EditDishes />} />
             <Route path='/new' element={<CreateDishes />} />
-            <Route path='/order_history' element={<History />} />
-            <Route path='/favorites' element={<Favorites />} />
-            <Route path='/order' element={<Order />}/>
-            <Route path='/payment' element={<Payment />} />
         </Routes>
     )
 }

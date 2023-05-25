@@ -1,10 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useAuth } from '../../hooks/auth'
 import { api } from '../../services/api'
 
 import { CaretRight, Minus, Plus, HeartStraight, PencilSimple } from '@phosphor-icons/react'
-import Ravanello from '../../assets/images/Ravanello.png'
 import { Container } from './styles'
 
 import { ButtonText } from '../ButtonText'
@@ -12,19 +11,20 @@ import { Button } from '../Button'
 
 export function Card({ data }) {
   const { user } = useAuth()
+
   const [quantity, setQuantity] = useState(0)
   const [favorite, setFavorite] = useState(false)
 
   const navigate = useNavigate()
 
-  // const dishPicture = `${api.defaults.baseURL}/dishes/img/${data.photo}`
+  const dishPicture = `${api.defaults.baseURL}/files/${data.picture}`
 
-  function handleDetails(id) {
-    navigate(`/dishes/${id}`)
+  function handleDetails() {
+    navigate(`/dishes/${data.id}`)
   }
 
-  function handleEditDish(id) {
-    navigate(`/edit/${id}`)
+  function handleEditDish() {
+    navigate(`/edit/${data.id}`)
   }
 
   function handleFavorites() {
@@ -60,20 +60,20 @@ export function Card({ data }) {
           onClick={handleFavorites}
         />
       }
-      {data &&
+      {
       <>
-        <img src={Ravanello} alt="Salada Ravanello" />
+        <img src={dishPicture} alt={data.name} />
         <div className="title">
           <ButtonText
             title={data.name}
-            onClick={() => handleDetails(data.id)}
+            onClick={handleDetails}
           />
           <CaretRight size={14}/>
         </div>
         <div className="desktopOnly">
           {data.description}
         </div>
-        <h1>{`R$ ${data.price}`}</h1>
+        <h1>R$ {data.price}</h1>
       </>}
       {!user.isAdmin ? 
       <div className="desktopButtons">
@@ -89,9 +89,11 @@ export function Card({ data }) {
           />
         </div>
         <Button 
+          isRed
           className='includeButton'
-          title='Incluir'
-        />
+        >
+          <span>Incluir</span>
+        </Button>
       </div> : <></>}
     
     </Container>
