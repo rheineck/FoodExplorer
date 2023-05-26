@@ -117,7 +117,7 @@ export function EditDishes() {
                 <UploadSimple size={24}/>
                 <input 
                   type="file" 
-                  id="food-picture" 
+                  id="picture" 
                   onChange={handlePictureFile}
                 />
                 <span>Selecione a imagem</span>

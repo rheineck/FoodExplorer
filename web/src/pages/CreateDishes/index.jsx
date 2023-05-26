@@ -9,7 +9,6 @@ import { Container, Form } from './styles'
 import { Header } from '../../components/Header'
 import { ButtonText } from '../../components/ButtonText'
 import { Input } from '../../components/Input'
-import { Select } from '../../components/Select'
 import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 import { Ingredient } from '../../components/Ingredient'
@@ -27,7 +26,6 @@ export function CreateDishes() {
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState("")
 
-  /* ingredients */
   function handleChange(event) {
     setWidth(event.target.value.length + 0.4);
     setNewIngredient(event.target.value)
@@ -43,13 +41,11 @@ export function CreateDishes() {
     setIngredients(prevState => prevState.filter(ingredient => ingredient != removedIngredient))
   }
 
-  /* picture */
   function handlePictureFile() {
     const file = e.target.files[0];
     setPictureFile(file);
   }
 
-  /* add food */
   function handleAddDish() {
     if((category === 'select') || !name || !ingredients || !price || !description) {
       alert("Preencha todos os campos!");
@@ -93,7 +89,7 @@ export function CreateDishes() {
           <section>
             <div id="picture-input">
               <h2>Imagem</h2>
-              <label htmlFor="food-picture">
+              <label htmlFor="dish-picture">
                 <UploadSimple />
                 <input 
                   type="file" 
