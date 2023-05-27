@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 import { api } from '../../services/api'
 import { CaretLeft, Minus, Plus, Receipt } from '@phosphor-icons/react'

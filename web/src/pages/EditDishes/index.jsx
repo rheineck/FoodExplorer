@@ -90,7 +90,7 @@ export function EditDishes() {
     if(confirm) {
       await api.delete(`/dishes/${params.id}`);
       alert('Prato excluído com sucesso!');
-      navigate(-1);
+      navigate('/');
     }
   }
 
@@ -113,7 +113,7 @@ export function EditDishes() {
           <section>
           <div id="picture-input">
               <h2>Imagem</h2>
-              <label htmlFor="food-picture">
+              <label htmlFor="dish-picture">
                 <UploadSimple size={24}/>
                 <input 
                   type="file" 

@@ -53,7 +53,12 @@ export const Slider = styled.div`
   @media(min-width: 1366px) {
     width: 1120px;
     height: 462px;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+        ::-webkit-scrollbar {
+          display: none;
+        }
     margin-bottom: 48px;
 
     .mobileOnly {
