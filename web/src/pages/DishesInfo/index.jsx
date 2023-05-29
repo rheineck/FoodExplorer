@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useNavigate, Link } from 'react-router-dom'
 
 import { api } from '../../services/api'
-import { CaretLeft, Minus, Plus, Receipt } from '@phosphor-icons/react'
-import Ravanello from '../../assets/images/Ravanello.png'
+import { CaretLeft, Minus, Plus } from '@phosphor-icons/react'
 
 import { useAuth } from '../../hooks/auth'
 import { Container } from './styles'
@@ -17,6 +16,7 @@ import { Footer } from '../../components/Footer'
 
 export function DishesInfo () {
   const [dishes, setDishes] = useState([])
+  const [quantity, setQuantity] = useState(0)
   const params = useParams()
 
   const navigate = useNavigate()
@@ -28,6 +28,16 @@ export function DishesInfo () {
 
   function handleEditDish() {
     navigate(`/edit/${params.id}`)
+  }
+
+  function handleSum() {
+    setQuantity(quantity + 1)
+  }
+
+  function handleSub() {
+    if(quantity > 0) {
+      setQuantity(quantity - 1)
+    }
   }
 
   useEffect(() => {
@@ -72,10 +82,12 @@ export function DishesInfo () {
               <div className="includeDishes">
                 <ButtonText
                   icon={Minus}
+                  onClick={handleSub}
                 />
-                01
+                {quantity}
                 <ButtonText 
                   icon={Plus}
+                  onClick={handleSum}
                 />
               </div>
               <Button 

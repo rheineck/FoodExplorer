@@ -9,7 +9,6 @@ import { Container, Form } from './styles'
 import { Header } from '../../components/Header'
 import { ButtonText } from '../../components/ButtonText'
 import { Input } from '../../components/Input'
-import { Select } from '../../components/Select'
 import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 import { Ingredient } from '../../components/Ingredient'
@@ -61,7 +60,7 @@ export function EditDishes() {
 
   /* picture */
   function handlePictureFile() {
-    const file = e.target.files[0];
+    const file = event.target.files[0];
 
     setPictureFile(file);
   }
@@ -113,11 +112,12 @@ export function EditDishes() {
           <section>
           <div id="picture-input">
               <h2>Imagem</h2>
-              <label htmlFor="dish-picture">
+              <label htmlFor="picture">
                 <UploadSimple size={24}/>
                 <input 
                   type="file" 
-                  id="picture" 
+                  id="picture"
+                  name='picture'
                   onChange={handlePictureFile}
                 />
                 <span>Selecione a imagem</span>
@@ -202,7 +202,8 @@ export function EditDishes() {
             id="" 
             cols="30" 
             rows="10" 
-            placeholder="Fale brevemente sobre o prato, sua composição e ingredientes" 
+            placeholder="Fale brevemente sobre o prato, sua composição e ingredientes"
+            value={description} 
             onChange={event => setDescription(event.target.value)}
           />
 

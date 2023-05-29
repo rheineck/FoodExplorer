@@ -19,6 +19,12 @@ export function Menu() {
     navigate(-1)
   }
 
+  function handleSignOut() {
+    alert('Você quer realmente sair?')
+    signOut()
+    navigate('/')
+  }
+
   return (
     <Container>
       <header>
@@ -35,27 +41,22 @@ export function Menu() {
               type='text'
           />
           {isAdmin ? 
-            <Link to='/edit/:id'>
-              <ButtonText 
-                id="button"
-                className="adminOnly"
-                title="Novo Prato"
-              />
-            </Link> : 
-            <Link to='/favorites'>
-              <ButtonText 
-                id="button"
-                title="Favoritos"
-              />
-            </Link>
-          }
-          
-          <Link to='/order_history'>
             <ButtonText 
               id="button"
-              title="Histórico"
+              className="adminOnly"
+              title="Novo Prato"
+              onClick={() => navigate('/new')}
             />
-          </Link>
+            : 
+            <ButtonText 
+              id="button"
+              title="Favoritos"
+            />
+          }
+          <ButtonText 
+            id="button"
+            title="Histórico"
+          />
           <Link to='/'>
             <ButtonText 
               id="button"
@@ -65,7 +66,7 @@ export function Menu() {
           <ButtonText
             id="button" 
             title="Sair"
-            onClick={signOut}
+            onClick={handleSignOut}
           />
         </div>
       </main>

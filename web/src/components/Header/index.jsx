@@ -28,12 +28,12 @@ export function Header({ search }) {
 
   return(
     <Container>
-      <Link to='/menu'>
         <Button 
-          icon={List}
           className='mobileOnly'
-        />
-      </Link>
+          onClick={() => navigate('/menu')}
+        >
+          <List />
+        </Button>
       {isAdmin ? <AdminBrand /> : <Brand />}
       <div className="desktopOnly">
         <Search>
@@ -56,8 +56,7 @@ export function Header({ search }) {
         </Button>
         :
         <Button
-        className='receiptButton desktopOnly'
-
+          className='receiptButton desktopOnly'
           isRed
         >
           <span>Meu Pedido (0)</span>
@@ -68,12 +67,11 @@ export function Header({ search }) {
           0
         </div>}
       {isAdmin ? <></> : 
-        <Link to='/order'>
-          <Button 
-            className='mobileOnly'
-            icon={Receipt}
-          />
-        </Link>}
+        <Button 
+          className='mobileOnly'
+        >
+          <Receipt />
+        </Button>}
       <button
         className='signOut desktopOnly'
         onClick={handleSignOut}

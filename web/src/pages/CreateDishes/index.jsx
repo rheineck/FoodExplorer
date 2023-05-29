@@ -42,7 +42,7 @@ export function CreateDishes() {
   }
 
   function handlePictureFile() {
-    const file = e.target.files[0];
+    const file = event.target.files[0];
     setPictureFile(file);
   }
 
@@ -89,11 +89,12 @@ export function CreateDishes() {
           <section>
             <div id="picture-input">
               <h2>Imagem</h2>
-              <label htmlFor="dish-picture">
+              <label htmlFor="picture">
                 <UploadSimple />
                 <input 
                   type="file" 
-                  id="picture" 
+                  id="picture"
+                  name='picture' 
                   onChange={handlePictureFile}
                 />
                 <span>Selecione a Imagem</span>
