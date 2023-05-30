@@ -100,6 +100,7 @@ export function DishesInfo () {
             <Button 
               isRed
               onClick={handleEditDish}
+              className="editDishes"
             >
               <span>Editar Prato</span>
             </Button>}

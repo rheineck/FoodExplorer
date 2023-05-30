@@ -21,14 +21,14 @@ export function Section ({ title, children }) {
   return(
     <Container>
       <h2>{title}</h2>
-      <Slider>
+      <Slider ref={slider}>
         <button
           className='buttonLeft desktopOnly'
           onClick={handleLeftArrowClick}
         >
           <CaretLeft size={40} />
         </button>
-        <div ref={slider}>
+        <div >
           {children}
         </div>
         <button

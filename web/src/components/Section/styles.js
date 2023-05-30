@@ -78,13 +78,13 @@ export const Slider = styled.div`
 
     .buttonLeft {
       position: absolute;
-      left: 0;
+      left: 123px;
       background: linear-gradient(270deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
     }
     
     .buttonRight {
       position: absolute;
-      right: 0;
+      right: 123px;
       background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
     }
   }

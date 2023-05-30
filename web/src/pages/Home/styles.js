@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* height: 100vh; */
   width: 100%;
   
   display: grid;
@@ -10,7 +9,7 @@ export const Container = styled.div`
   'content'
   'footer';
   justify-items: center;
-  `
+`
 
 export const Content = styled.div`
   grid-area: content;
@@ -19,6 +18,4 @@ export const Content = styled.div`
     margin-bottom: 48px;
   }
   
-  @media(min-width: 1366px) {
-  }
 `

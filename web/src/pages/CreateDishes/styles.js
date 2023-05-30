@@ -8,7 +8,7 @@ export const Container = styled.div`
     margin: 11px 32px 53px;
   }
 
-  @media(min-width: 1366px) {
+  @media(min-width: 1270px) {
     main {
       margin: 40px 122px 116px;
     }
@@ -152,7 +152,7 @@ export const Form = styled.form`
     font-size: 16px;
   }
 
-  @media(min-width: 1366px) {
+  @media(min-width: 1270px) {
     section {
       display: flex;
       gap: 32px;

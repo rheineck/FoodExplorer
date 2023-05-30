@@ -80,7 +80,7 @@ export const Container = styled.div`
     width: 316px;
   }
 
-  @media(min-width: 1366px) {
+  @media(min-width: 1270px) {
 
     main {
       margin: 42px 122px 65px;
@@ -127,6 +127,11 @@ export const Container = styled.div`
 
     .editDishes {
       width: 131px;
+
+      > span {
+        font-size: 14px;
+        line-height: 24px;
+      }
     }
   }
 

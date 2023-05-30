@@ -48,21 +48,8 @@ export function Menu() {
               onClick={() => navigate('/new')}
             />
             : 
-            <ButtonText 
-              id="button"
-              title="Favoritos"
-            />
+            <></>
           }
-          <ButtonText 
-            id="button"
-            title="Histórico"
-          />
-          <Link to='/'>
-            <ButtonText 
-              id="button"
-              title="Home"
-            />
-          </Link>
           <ButtonText
             id="button" 
             title="Sair"
