@@ -18,6 +18,7 @@ export function Card({ data }) {
   const navigate = useNavigate()
 
   const dishPicture = `${api.defaults.baseURL}/files/${data.picture}`
+  console.log(dishPicture)
 
   function handleDetails() {
     navigate(`/dishes/${data.id}`)

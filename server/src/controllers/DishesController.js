@@ -14,12 +14,12 @@ class DishesController {
       throw new AppError("Prato já existente.")
     }
 
-    // const dishFilename = request.file.filename;
-    // const diskStorage = new DiskStorage()
-    // const filename = await diskStorage.saveFile(dishFilename)
+    const dishFilename = request.file.filename;
+    const diskStorage = new DiskStorage()
+    const filename = await diskStorage.saveFile(dishFilename)
 
     const dishes_id = await knex("dishes").insert({
-      // picture: filename,
+      picture: filename,
       category,
       name,
       price,
@@ -112,7 +112,6 @@ class DishesController {
     await knex("dishes").where({ id }).update(dish);
     await knex("dishes").where({ id }).update("updated_at", knex.fn.now());
 
-    /* ingredients */
     const ingredientsInsert = ingredients.map(ingredient => {
       return {
         dishes_id: id,
