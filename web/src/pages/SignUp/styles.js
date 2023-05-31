@@ -52,6 +52,9 @@ export const Form = styled.form`
   width: 100%;
   align-items: center;
 
+  animation-name: left-right;
+  animation-duration: 2s;
+
   div {
     margin-bottom: 32px;
   }
@@ -76,7 +79,7 @@ export const Form = styled.form`
     margin-top: 32px;
   }
 
-  @media(min-width: 1200px) {
+  @media(min-width: 1270px) {
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
     height: 62rem;
     width: 48rem;
@@ -86,6 +89,18 @@ export const Form = styled.form`
 
     input, button {
       width: 100%;
+    }
+  }
+
+  @keyframes left-right {
+    0% {
+      opacity: 0;
+      transform: translateX(0px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(-2px);
     }
   }
 `

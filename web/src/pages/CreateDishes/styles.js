@@ -42,6 +42,7 @@ export const Form = styled.form`
     font-family: 'Poppins';
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     margin-top: 24px;
+    animation: none;
   }
   
   h2 {

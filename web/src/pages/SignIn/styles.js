@@ -24,6 +24,9 @@ export const Container = styled.div`
       width: 42px;
       margin-right: 12px;
     }
+
+    animation-name: right-left;
+    animation-duration: 2s;
   }
 
   @media(min-width: 1200px) {
@@ -44,6 +47,18 @@ export const Container = styled.div`
     }
   }
 
+  @keyframes right-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    100% {
+      opactity: 1;
+      transform: translateX(0);
+    }
+  }
+
 `
 
 export const Form = styled.form`
@@ -51,6 +66,9 @@ export const Form = styled.form`
   margin-bottom: 3.2rem;
   width: 100%;
   align-items: center;
+
+  animation-name: left-right;
+  animation-duration: 2s;
 
   div {
     margin-bottom: 32px;
@@ -76,7 +94,7 @@ export const Form = styled.form`
     margin-top: 32px;
   }
 
-  @media(min-width: 1200px) {
+  @media(min-width: 1270px) {
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
     height: 62rem;
     width: 48rem;
@@ -88,5 +106,16 @@ export const Form = styled.form`
       width: 100%;
     }
   }
-`
 
+  @keyframes left-right {
+    0% {
+      opacity: 0;
+      transform: translateX(0px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(-2px);
+    }
+  }
+`

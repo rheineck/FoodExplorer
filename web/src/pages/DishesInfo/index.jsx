@@ -92,7 +92,8 @@ export function DishesInfo () {
               </div>
               <Button 
                 isRed
-                onClick={handleEditDish}
+                onClick={() => alert('Prato adicionado!')}
+                className='editDishes'
               >
                 <span>{`Pedir R$ ${dishes.price}`}</span>
               </Button>

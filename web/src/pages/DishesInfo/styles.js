@@ -123,6 +123,11 @@ export const Container = styled.div`
 
     .includeButton {
       margin-left: 33px;
+       
+      > span {
+        font-size: 14px;
+        line-height: 24px;
+      }
     }
 
     .editDishes {

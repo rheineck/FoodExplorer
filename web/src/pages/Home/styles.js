@@ -9,7 +9,8 @@ export const Container = styled.div`
   'content'
   'footer';
   justify-items: center;
-`
+
+  `
 
 export const Content = styled.div`
   grid-area: content;

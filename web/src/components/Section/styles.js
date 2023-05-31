@@ -24,7 +24,7 @@ export const Container = styled.section`
     height: 40px;
   }
   
-  @media(min-width: 1366px) {
+  @media(min-width: 1270px) {
     width: 1120px;
     margin: 0;
     h2 {
@@ -50,7 +50,7 @@ export const Slider = styled.div`
     display: none;
   }
   
-  @media(min-width: 1366px) {
+  @media(min-width: 1270px) {
     width: 1120px;
     height: 462px;
     overflow-x: auto;
@@ -78,13 +78,13 @@ export const Slider = styled.div`
 
     .buttonLeft {
       position: absolute;
-      left: 123px;
+      left: 90px;
       background: linear-gradient(270deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
     }
     
     .buttonRight {
       position: absolute;
-      right: 123px;
+      right: 140px;
       background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, ${({ theme }) => theme.COLORS.DARK_400} 100%);
     }
   }

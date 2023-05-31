@@ -50,18 +50,37 @@ export default createGlobalStyle`
     width: 28px;
   }
 
-  @media(min-width: 1366px) {
-    main {
-      /* margin-right: 123px; */
-      /* margin-left: 123px; */
-    }
-    
+  header {
+    animation-name: topdown;
+    animation-duration: 2s;
   }
 
-  @media(width: 1920px) {
-    main {
-      /* margin-left: 277px; */
-      /* margin-right: 277px; */
+  main {
+    animation-name: downtop;
+    animation-duration: 2s;
+  }
+
+  @keyframes topdown {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes downtop {
+    0% {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(-2px);
     }
   }
 
