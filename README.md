@@ -38,58 +38,10 @@ O layout da aplicação está disponível no Figma:
 
 Este projeto é divido em duas partes:
 
-1. Backend (API)
-2. Frontend
+1. [Backend](https://github.com/rheineck/FoodExplorer/tree/master/server)
+2. [Frontend](https://github.com/rheineck/FoodExplorer/tree/master/web)
 
 💡O Backend deve estar rodando em sua máquina para que o frontend seja reenderizado.
-
-### Pré-requisitos
-
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
-Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
-
-### 🎲 Rodando o Back End (servidor)
-
-```bash
-# Clone este repositório
-$ git clone https://github.com/rheineck/FoodExplorer.git
-
-# Acesse a pasta do projeto no terminal/cmd
-$ cd server
-
-# Instale as dependências
-$ npm install
-
-# Execute as migration
-$ npm migrate
-
-# Execute a aplicação em modo de desenvolvimento
-$ npm run dev
-
-# Login do admin
-$ email: admin@admin.com
-$ password: admin
-
-# O servidor inciará na porta:3334 - acesse <http://localhost:3334>
-```
-
-#### 🎲 Rodando a aplicação (Frontend)
-
-```bash
-
-# Acesse a pasta do projeto no terminal/cmd
-$ cd web
-
-# Instale as dependências com:
-$ npm install
-
-# Rode a aplicação em modo de desenvolvimento:
-$ npm run dev
-
-```
-
----
 
 ## 🛠 Tecnologias
 
