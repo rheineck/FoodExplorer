@@ -57,6 +57,8 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 
 ## Deploy do projeto.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/37ca0d62-c6fa-414f-8fe9-9c41ff441a26/deploy-status)](https://app.netlify.com/sites/foodexplorer-rgh/deploys)
+
 https://foodexplorer-rgh.netlify.app/
 
 ---
